@@ -1,4 +1,5 @@
 #define class test
+require './Cards.rb'
 # created by Jacob Woods
 class Test
   def initialize
@@ -17,16 +18,14 @@ def check_input(var1, var2, var3 , delt)
 
   #set check to true
   check = true
-  i = 0
-  #while loop iterates through each specification of card (number first then color etc)
-	while i < 4 && check == true do
+
     #check every card that it doesnt have a double
-		for j in 0..2 do
+  for j in 0..2 do
       #use count to keep track of double
       count = 0
       #set strings to compare if equal
-      t = @card[j][i].to_s
-      s = @card[0][i].to_s
+      t = @card[j].get_num.to_s
+      s = @card[0].get_num.to_s
 
       #compare for each of the 3 cards
 			if (t <=> s) == 0
@@ -35,12 +34,12 @@ def check_input(var1, var2, var3 , delt)
 
 			end
 
-      s = @card[1][i].to_s
+      s = @card[1].get_num.to_s
 			if (t <=> s) == 0
          count = count + 1
 
 			end
-      s = @card[2][i].to_s
+      s = @card[2].get_num.to_s
       if (t <=> s) == 0
         count = count + 1
       end
@@ -49,23 +48,106 @@ def check_input(var1, var2, var3 , delt)
         check = false
 
       end
+  end
 
-		end
-		
-		
-		 if count == 2
-        check = false
+  for j in 0..2 do
+    #use count to keep track of double
+    count = 0
+    #set strings to compare if equal
+    t = @card[j].get_shape.to_s
+    s = @card[0].get_shape.to_s
 
-     end
-    #iteration
-    i = i + 1
-	end
-  #return check
-check
+    #compare for each of the 3 cards
+    if (t <=> s) == 0
+      #add to count if they are the same
+      count = count + 1
 
+    end
+
+    s = @card[1].get_shape.to_s
+    if (t <=> s) == 0
+      count = count + 1
+
+    end
+    s = @card[2].get_shape.to_s
+    if (t <=> s) == 0
+      count = count + 1
+    end
+    #check for every loop if there is a double then set check
+    if count == 2
+      check = false
+
+    end
+  end
+
+  for j in 0..2 do
+    #use count to keep track of double
+    count = 0
+    #set strings to compare if equal
+    t = @card[j].get_color.to_s
+    s = @card[0].get_color.to_s
+
+    #compare for each of the 3 cards
+    if (t <=> s) == 0
+      #add to count if they are the same
+      count = count + 1
+
+    end
+
+    s = @card[1].get_color.to_s
+    if (t <=> s) == 0
+      count = count + 1
+
+    end
+    s = @card[2].get_color.to_s
+    if (t <=> s) == 0
+      count = count + 1
+    end
+    #check for every loop if there is a double then set check
+    if count == 2
+      check = false
+
+    end
+  end
+
+  for j in 0..2 do
+    #use count to keep track of double
+    count = 0
+    #set strings to compare if equal
+    t = @card[j].get_shade.to_s
+    s = @card[0].get_shade.to_s
+
+    #compare for each of the 3 cards
+    if (t <=> s) == 0
+      #add to count if they are the same
+      count = count + 1
+
+    end
+
+    s = @card[1].get_shade.to_s
+    if (t <=> s) == 0
+      count = count + 1
+
+    end
+    s = @card[2].get_shade.to_s
+    if (t <=> s) == 0
+      count = count + 1
+    end
+    #check for every loop if there is a double then set check
+    if count == 2
+      check = false
+
+    end
+  end
+
+
+    #return check
+    check
 end
 
 end
+
+
 
 			
 

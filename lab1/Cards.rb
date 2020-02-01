@@ -23,6 +23,24 @@ class Card
       puts card.green
     end
   end
+
+  def get_num
+    @number
+  end
+
+  def get_color
+    @color
+  end
+
+  def get_shape
+    @shape
+  end
+
+  def get_shade
+    @shading
+  end
+
+
 end
 
 # Define class Deck
