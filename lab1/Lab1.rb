@@ -5,6 +5,8 @@ require './testinput.rb'
 deck = Deck.new
 check = Test.new
 
+totalTime = 0
+
 # initialize hand of 12
 hand = []
 deck.deal(hand)
@@ -20,6 +22,9 @@ while deck.cards_left > 3
   #print the delt hand
   display_hand(hand)
 
+  #gets current time
+  timeNow = Time.now
+
   #ask for user input
   puts 'enter 3 numbers with enter inbetween each to say which cards you want(n if there is not a set and q to quit game): '
 
@@ -28,6 +33,10 @@ while deck.cards_left > 3
   var2 = gets.to_i
   var3 = gets.to_i
 
+  #calculates time taken for user to respond
+  timeAfter = Time.now
+  timeTaken = timeAfter - timeNow
+
   #check the user input to see if it is a set
   checkuser = check.check_input(var1,var2,var3, hand)
   #display if it is a set
@@ -35,6 +44,10 @@ while deck.cards_left > 3
 
   #if it is a set remove the cards from the deck and give user a point
   if checkuser
+     #displays time taken to find set
+    puts "#{timeTaken} seconds taken to find a set"
+    totalTime = totalTime + timeTaken    
+
     str1 = hand[var1]
     str2 = hand[var2]
     str3 = hand[var3]
@@ -53,4 +66,5 @@ end
 #display total points
 puts 'total points earned: '
 puts points
-
+#displays total time taken
+puts "#{totalTime} is the total time taken"
