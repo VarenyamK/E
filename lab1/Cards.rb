@@ -24,22 +24,6 @@ class Card
     end
   end
 
-  def get_num
-    @number
-  end
-
-  def get_color
-    @color
-  end
-
-  def get_shape
-    @shape
-  end
-
-  def get_shade
-    @shading
-  end
-
 
 end
 
@@ -87,7 +71,12 @@ class Deck
 end
 
 def display_hand(hand)
-  hand.each(&:print_card)
+  i = 0
+  hand.each do |c|
+    print i.to_s + ": "
+    c.print_card
+    i = i + 1
+  end
 end
 
 # Add method to String class to add color to terminal output

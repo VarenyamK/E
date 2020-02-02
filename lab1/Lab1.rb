@@ -29,7 +29,22 @@ while deck.cards_left > 3
   puts 'enter 3 numbers with enter inbetween each to say which cards you want(n if there is not a set and q to quit game): '
 
   #get input from user
-  var1 = gets.to_i
+  var1 = gets.chomp
+  #check for quit statement
+  if (var1 <=> 'q') == 0
+    #exit game loop
+    break
+    #check for no set statement
+  elsif (var1 <=> 'n') == 0
+    #redeal hand
+    hand = []
+    deck.deal(hand)
+    #skip rest of loop
+    next
+  end
+
+  #get variables
+  var1 = var1.to_i
   var2 = gets.to_i
   var3 = gets.to_i
 

@@ -24,8 +24,8 @@ def check_input(var1, var2, var3 , delt)
       #use count to keep track of double
       count = 0
       #set strings to compare if equal
-      t = @card[j].get_num.to_s
-      s = @card[0].get_num.to_s
+      t = @card[j].number.to_s
+      s = @card[0].number.to_s
 
       #compare for each of the 3 cards
 			if (t <=> s) == 0
@@ -34,12 +34,12 @@ def check_input(var1, var2, var3 , delt)
 
 			end
 
-      s = @card[1].get_num.to_s
+      s = @card[1].number.to_s
 			if (t <=> s) == 0
          count = count + 1
 
 			end
-      s = @card[2].get_num.to_s
+      s = @card[2].number.to_s
       if (t <=> s) == 0
         count = count + 1
       end
@@ -54,8 +54,8 @@ def check_input(var1, var2, var3 , delt)
     #use count to keep track of double
     count = 0
     #set strings to compare if equal
-    t = @card[j].get_shape.to_s
-    s = @card[0].get_shape.to_s
+    t = @card[j].shape.to_s
+    s = @card[0].shape.to_s
 
     #compare for each of the 3 cards
     if (t <=> s) == 0
@@ -64,12 +64,12 @@ def check_input(var1, var2, var3 , delt)
 
     end
 
-    s = @card[1].get_shape.to_s
+    s = @card[1].shape.to_s
     if (t <=> s) == 0
       count = count + 1
 
     end
-    s = @card[2].get_shape.to_s
+    s = @card[2].shape.to_s
     if (t <=> s) == 0
       count = count + 1
     end
@@ -84,8 +84,8 @@ def check_input(var1, var2, var3 , delt)
     #use count to keep track of double
     count = 0
     #set strings to compare if equal
-    t = @card[j].get_color.to_s
-    s = @card[0].get_color.to_s
+    t = @card[j].color.to_s
+    s = @card[0].color.to_s
 
     #compare for each of the 3 cards
     if (t <=> s) == 0
@@ -94,12 +94,12 @@ def check_input(var1, var2, var3 , delt)
 
     end
 
-    s = @card[1].get_color.to_s
+    s = @card[1].color.to_s
     if (t <=> s) == 0
       count = count + 1
 
     end
-    s = @card[2].get_color.to_s
+    s = @card[2].color.to_s
     if (t <=> s) == 0
       count = count + 1
     end
@@ -114,8 +114,8 @@ def check_input(var1, var2, var3 , delt)
     #use count to keep track of double
     count = 0
     #set strings to compare if equal
-    t = @card[j].get_shade.to_s
-    s = @card[0].get_shade.to_s
+    t = @card[j].shading.to_s
+    s = @card[0].shading.to_s
 
     #compare for each of the 3 cards
     if (t <=> s) == 0
@@ -124,12 +124,12 @@ def check_input(var1, var2, var3 , delt)
 
     end
 
-    s = @card[1].get_shade.to_s
+    s = @card[1].shading.to_s
     if (t <=> s) == 0
       count = count + 1
 
     end
-    s = @card[2].get_shade.to_s
+    s = @card[2].shading.to_s
     if (t <=> s) == 0
       count = count + 1
     end
