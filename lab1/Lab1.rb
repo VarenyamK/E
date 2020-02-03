@@ -2,6 +2,28 @@
 require './Cards.rb'
 require './testinput.rb'
 
+def checkbounds (var1, var2 , var3)
+  acheck = [0,1,2,3,4,5,6,7,8,9,10,11]
+  tf = true
+
+  if !(acheck.include? var1)
+    tf = false
+    puts'variable 1 out of bounds'
+  end
+
+  if !(acheck.include? var2)
+    tf = false
+    puts'variable 2 out of bounds'
+  end
+
+  if !(acheck.include? var3)
+    tf = false
+    puts'variable 3 out of bounds'
+  end
+
+  tf
+end
+
 
 #method that takes in 12 card hand and prints a hint
 def hint(cards12)
@@ -41,50 +63,58 @@ points = 0
 
 #stay playing until out of cards to deal
 while deck.cards_left > 3
-  #print the delt hand
-  display_hand(hand)
 
-  #gets current time
-  timeNow = Time.now
+    #gets current time
+    timeNow = Time.now
+    checkb = false
+    #while loop to keep
+  while checkb == false
 
-  #ask for user input
-  puts 'Enter 3 numbers with enter inbetween each to say which cards you want(n if there is not a set and q to quit game): '
-  puts 'Stuck? press h for a hint. You will only get 3 hints per game so use them wisely'
-  
-  #get input from user
-  var1 = gets.chomp
-  #if user needs a hind, hint will be given, up to 3 hints per game
-  if (var1 <=> 'h') == 0
-    #makes sure user has hints left
-    if hints < 3    
-      puts 'Hint: the following set of 3 cards is a set'
-      hint(hand)
-    elsif hints >= 3
-      #if user used all 3 hints, no more are available
-      puts 'Sorry, you used all 3 hints this game. Enter 3 cards with enter inbetween each or n if there is no set, q to quit'
+    #print the delt hand
+    display_hand(hand)
+
+    #ask for user input
+    puts 'Enter 3 numbers with enter inbetween each to say which cards you want(n if there is not a set and q to quit game): '
+    puts 'Stuck? press h for a hint. You will only get 3 hints per game so use them wisely'
+
+    #get input from user
+    var1 = gets.chomp
+    #if user needs a hind, hint will be given, up to 3 hints per game
+    if (var1 <=> 'h') == 0
+      #makes sure user has hints left
+      if hints < 3
+        puts 'Hint: the following set of 3 cards is a set'
+        hint(hand)
+      elsif hints >= 3
+        #if user used all 3 hints, no more are available
+        puts 'Sorry, you used all 3 hints this game. Enter 3 cards with enter inbetween each or n if there is no set, q to quit'
+      end
+       hints +=1
+       var1 = gets.chomp
     end
-     hints +=1
-     var1 = gets.chomp
-  end
-  
-  #check for quit statement
-   if (var1 <=> 'q') == 0
-    #exit game loop
-    break
-    #check for no set statement
-  elsif (var1 <=> 'n') == 0
-    #redeal hand
-    hand = []
-    deck.deal(hand)
-    #skip rest of loop
-    next
-  end
 
-  #get variables
-  var1 = var1.to_i
-  var2 = gets.to_i
-  var3 = gets.to_i
+    #check for quit statement
+    if (var1 <=> 'q') == 0
+      #exit game loop
+      exit!
+      #check for no set statement
+    elsif (var1 <=> 'n') == 0
+      #redeal hand
+      hand = []
+      deck.deal(hand)
+      #skip rest of loop
+      next
+    end
 
+    #get variables
+    var1 = var1.to_i
+    var2 = gets.to_i
+    var3 = gets.to_i
+
+    #check if variables are out of range
+    checkb = checkbounds(var1, var2, var3)
+
+  end
   #calculates time taken for user to respond
   timeAfter = Time.now
   timeTaken = timeAfter - timeNow
@@ -115,6 +145,7 @@ while deck.cards_left > 3
   end
 
 end
+
 #display total points
 puts 'total points earned: '
 puts points
