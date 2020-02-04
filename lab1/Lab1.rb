@@ -69,12 +69,13 @@ def check_player_id(players_arr)
 end
 
 # method that takes in 12 card hand and prints a hint
-def hint(cards12)
+def hint?(cards12)
   arr12 = (0..(cards12.length()-1)).to_a
   allSets = Array.new
   allSets = arr12.combination(3).to_a
 
   i = 0
+  isSet = false
   while i < allSets.length()
     checkHint = Test.new
     comb = Array.new
@@ -87,10 +88,16 @@ def hint(cards12)
 
     i += 1
   end
-  puts "#{crd1} #{crd2} #{crd3}"
-end
+  if(isSet)
+    puts "#{crd1} #{crd2} #{crd3}"
+  else
+    puts "No Set Found"
+  end
+  isSet
+  end
 
 play_again = true
+
 
 # initialize players list
 players = []
@@ -110,7 +117,7 @@ end
 
 # keep starting new games until player wants to stop
 while play_again
-
+  play_again = false
   deck = Deck.new
   check = Test.new
 
@@ -153,12 +160,12 @@ while play_again
         # makes sure user has hints left
         if hints < 3
           puts 'Hint: the following set of 3 cards is a set'
-          hint(hand)
+          hint?(hand)
         elsif hints >= 3
           #if user used all 3 hints, no more are available
           puts 'Sorry, you used all 3 hints this game. Enter 3 cards with enter inbetween each or n if there is no set, q to quit'
         end
-        #hints += 1
+        hints += 1
         var1 = gets.chomp
       end
 
@@ -170,8 +177,17 @@ while play_again
       elsif (var1 <=> 'n').zero?
         # re-deal hand
         deck.deal(hand)
+        if hint?(hand)
+          puts "A set still exists in the deck"
+          puts "Enter first card number: "
+          var1 = gets.to_i
+        else
+          deck.deal(hand)
+          next
+        end
         # skip rest of loop
-        next
+
+
       end
 
       # get variables
@@ -242,8 +258,9 @@ while play_again
   # asks user if they want to play again
   puts 'Enter \'1\' to play again: '
   answer = gets.to_i
-  if answer != 1
-    play_again = false
+  if answer == 1
+    play_again = true
+  else
     puts 'Thank you for playing!'
   end
 end
