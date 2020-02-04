@@ -35,17 +35,17 @@ def checkbounds (var1, var2 , var3, arr)
   # check each variable if it is not in this range
   unless acheck.include? var1
     tf = false
-    puts 'variable 1 out of bounds'
+    puts 'Card 1 is out of bounds'
   end
 
   unless acheck.include? var2
     tf = false
-    puts 'variable 2 out of bounds'
+    puts 'Card 2 is out of bounds'
   end
 
   unless acheck.include? var3
     tf = false
-    puts 'variable 3 out of bounds'
+    puts 'Card 3 is out of bounds'
   end
   # return the boolean check
   tf
