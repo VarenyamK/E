@@ -1,4 +1,4 @@
-# Author @Varenyam Kaushik, Nick Connors
+# Authors: Varenyam Kaushik, Nick Connors
 
 # define class Card
 class Card
@@ -12,19 +12,22 @@ class Card
     @shading = shading
   end
 
-  # allows to print out card values
+  # allows to print out card values in a somewhat visible format
   def print_card
-    card = "#{@number} #{@color} #{@shape} #{@shading}"
-    if @color == 'red'
-      puts card.red
-    elsif @color == 'blue'
-      puts card.blue
-    elsif @color == 'green'
-      puts card.green
+    shape = if @shape == 'diamond'; '♦'
+            elsif @shape == 'oval'; '⬬'
+            else '~'
+            end
+
+    # card will display the shape @number times along with a text of its shading
+    card = ("#{shape} " * @number).strip + " #{@shading}"
+
+    # print card with its appropriate color
+    if @color == 'red'; puts card.red
+    elsif @color == 'blue'; puts card.blue
+    else puts card.green
     end
   end
-
-
 end
 
 # Define class Deck
@@ -73,9 +76,9 @@ end
 def display_hand(hand)
   i = 0
   hand.each do |c|
-    print i.to_s + ": "
+    print i.to_s + ': '
     c.print_card
-    i = i + 1
+    i += 1
   end
 end
 
