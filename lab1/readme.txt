@@ -14,8 +14,11 @@ The game of Set:
 		- Ex
 			"two red solid squiggles", "one green solid diamond", "three purple solid ovals" is a set
 			"two red solid squiggles", "one green solid squiggles", "three purple solid ovals" is not a set
-		- You will be delt 12 cards and must find a set as fast as possible
-		- If there is not a set you can opt to add three more cards to the delt cards (must confirm with other players)
+		- You will be dealt 12 cards and must find a set as fast as possible
+		- If there is not a set you can opt to add three more cards to the dealt cards
+		- You are given 3 hints per game
 		- the game ends when the deck runs out
+		- Multi player functionality and scoring:
+		    - Enter player number before typing in set
 
 		
