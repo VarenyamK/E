@@ -2,10 +2,36 @@
 require './Cards.rb'
 require './testinput.rb'
 
-def checkbounds (var1, var2 , var3)
-  acheck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+#method to check for duplicate inputs
+def checkduplicate(var1, var2, var3)
+  check =  true
+  #check each variation to make sure it isnt the same as any other variable
+  if var1 == var2
+    check = false
+  end
+
+  if var1 == var3
+    check = false
+  end
+
+  if var2 == var3
+    check = false
+  end
+  #error message
+  if check == false
+    puts 'do not put duplicate numbers'
+  end
+  check
+end
+
+#check if the variables are out of bounds of the delt hand
+def checkbounds (var1, var2 , var3, arr)
+  #get array of all the indexes possible
+  acheck = (0..(arr.length()-1)).to_a
+  # set the variable
   tf = true
 
+  # check each variable if it is not in this range
   unless acheck.include? var1
     tf = false
     puts 'variable 1 out of bounds'
@@ -20,13 +46,13 @@ def checkbounds (var1, var2 , var3)
     tf = false
     puts 'variable 3 out of bounds'
   end
-
+  #return the boolean check
   tf
 end
 
 # method that takes in 12 card hand and prints a hint
 def hint(cards12)
-  arr12 = Array[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  arr12 = (0..(cards12.length()-1)).to_a
   allSets = Array.new
   allSets = arr12.combination(3).to_a
 
@@ -64,9 +90,11 @@ while deck.cards_left > 3
 
   # gets current time
   timeNow = Time.now
+  #get variables for the user checks
   checkb = false
-  # while loop to keep
-  while checkb == false
+  checkd = false
+  # while loop to loop till correct inputs
+  while (checkb == false) || (checkd == false)
 
     # print the dealt hand
     display_hand(hand)
@@ -98,7 +126,6 @@ while deck.cards_left > 3
       # check for no set statement
     elsif (var1 <=> 'n').zero?
       # re-deal hand
-      hand = []
       deck.deal(hand)
       # skip rest of loop
       next
@@ -108,9 +135,13 @@ while deck.cards_left > 3
     var1 = var1.to_i
     var2 = gets.to_i
     var3 = gets.to_i
-
-    # check if variables are out of range
-    checkb = checkbounds(var1, var2, var3)
+    # check if user put duplicates which is not allowed
+    checkd = checkduplicate(var1,var2,var3)
+    # if statement to keep from checking the same numbers (will return true if this happens)
+    if checkd == true
+      # check if variables are out of range
+      checkb = checkbounds(var1, var2, var3, hand)
+    end
 
   end
   # calculates time taken for user to respond
@@ -136,12 +167,15 @@ while deck.cards_left > 3
   hand.delete(str1)
   hand.delete(str2)
   hand.delete(str3)
-  # adding cards to hand
-  puts ' adding cards'
-  deck.deal(hand)
+
+  #if the array has been added to (by there not being a set) do not add more cards
+  if (hand.length() < 12)
+    # adding cards to hand
+    puts ' adding cards'
+    deck.deal(hand)
+  end
   # add points
   points += 1
-
 end
 
 # display total points
