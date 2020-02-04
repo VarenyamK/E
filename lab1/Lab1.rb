@@ -3,10 +3,10 @@ require './Cards.rb'
 require './testinput.rb'
 require './Players.rb'
 
-#method to check for duplicate inputs
+# method to check for duplicate inputs
 def checkduplicate(var1, var2, var3)
   check =  true
-  #check each variation to make sure it isnt the same as any other variable
+  # check each variation to make sure it isnt the same as any other variable
   if var1 == var2
     check = false
   end
@@ -18,16 +18,16 @@ def checkduplicate(var1, var2, var3)
   if var2 == var3
     check = false
   end
-  #error message
+  # error message
   if check == false
     puts 'do not put duplicate numbers'
   end
   check
 end
 
-#check if the variables are out of bounds of the delt hand
+# check if the variables are out of bounds of the delt hand
 def checkbounds (var1, var2 , var3, arr)
-  #get array of all the indexes possible
+  # get array of all the indexes possible
   acheck = (0..(arr.length()-1)).to_a
   # set the variable
   tf = true
@@ -47,7 +47,7 @@ def checkbounds (var1, var2 , var3, arr)
     tf = false
     puts 'variable 3 out of bounds'
   end
-  #return the boolean check
+  # return the boolean check
   tf
 end
 
@@ -143,8 +143,8 @@ while play_again
       puts current_player.name + ' is the selected player'
 
       # ask for user input
-      puts 'Enter 3 numbers with enter inbetween each to say which cards you want(n if there is not a set and q to quit game): '
-      puts 'Stuck? press h for a hint. You will only get 3 hints per game so use them wisely'
+      puts 'Enter first card number (or q to quit or n if there is no set):'
+      puts 'Stuck? press h for a hint. You will only get 3 hints per game:'
 
       # get input from user
       var1 = gets.chomp
@@ -176,7 +176,9 @@ while play_again
 
       # get variables
       var1 = var1.to_i
+      puts 'Enter second card number:'
       var2 = gets.to_i
+      puts 'Enter first second card number:'
       var3 = gets.to_i
       # check if user put duplicates which is not allowed
       checkd = checkduplicate(var1,var2,var3)
@@ -193,8 +195,12 @@ while play_again
 
     # check the user input to see if it is a set
     checkuser = check.check_input(var1, var2, var3, hand)
+
     # display if it is a set
-    puts checkuser
+    if !checkuser
+      puts "Invalid set"
+    end
+    #puts checkuser
 
     # if it is a set remove the cards from the deck and give user a point
     next unless checkuser
