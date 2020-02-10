@@ -6,11 +6,25 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Middleman" %></title>
+    <title><%= current_page.data.title || "Michael D. Bond's Website" %></title>
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "site" %>
   </head>
   <body>
+    <header>
+      <!-- <a href="https://www.osu.edu"><img class="logo" border="0" alt="Ohio State" src="/images/OSU_logo.png"></a> -->
+      <img class="logo" src="/images/OSU_logo.png">
+      <nav>
+        <ul class="nav_links">
+          <li><a class="page" href="index.html">Home</a></li>
+          <li><a class="page" href="news.html">News</a></li>
+          <li><a class="page" href="research.html">Research</a></li>
+          <li><a class="page" href="teaching.html">Teaching</a></li>
+          <li><a class="page" href="misc.html">Misc</a></li>
+          <li><a class="page" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

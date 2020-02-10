@@ -1,24 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: #fbc547;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
-    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
-    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
-    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 18vh 1rem;
-  text-align: center;
+  background-color: #121212;
 }
 
-a {
-  color: rgba(#000, 0.7);
-
-  &:focus,
-  &:hover {
-    color: rgba(#000, 0.6);
-  }
+.nav_links li a {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: whitesmoke;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.middleman-logo {
-  margin-bottom: 1rem;
-  width: 10rem;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: #bb0000;
+}
+
+.logo {
+  cursor: pointer;
+  max-width: 4%;
+  max-height: 4%;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  margin-left: 100px;
+  padding-top: 25px;
+  position: relative;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+  color: black;
+}
+
+.nav_links li a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+.nav_links li a:hover::before {
+  width: 100%;
+}
+
+h1 {
+  color: white;
 }
