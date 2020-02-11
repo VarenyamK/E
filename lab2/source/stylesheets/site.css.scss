@@ -73,17 +73,63 @@ header {
 
 h1 {
   color: white;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  margin: 10px;
   text-align: center;
 }
 
+h2 {
+  color: white;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+}
+
+
 p {
   color: white;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-ul{
+p.miscp{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+ul.misclist{
+  border-style: solid;
+  border-width: 4px;
+  text-align: center;
   list-style-type: circle;
+  margin: 10px 450px 10px 450px;
+  padding: 5px;
+
 }
 
+ul.links {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  background: #bb0000;
+  text-align: center;
+  list-style-type: circle;
+
+
+}
+
+.wrap {
+  margin: 10px 0px 10px 0px;
+  background: #bb0000;
+  vertical-align: auto;
+  border-width: 5px;
+  padding: 20px;
+  font-size: 25px;
+}
 li {
   color: white;
+  font-size: 25px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
