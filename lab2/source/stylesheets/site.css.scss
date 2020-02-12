@@ -8,6 +8,8 @@
 
 body {
   background-color: #121212;
+  min-width: 1500px;
+  overflow: auto;
 }
 
 .OSU_link {
@@ -115,8 +117,9 @@ ul.links {
   font-size: 25px;
   background: #bb0000;
   text-align: center;
-  list-style-type: circle;
-
+  list-style-type: none;
+  margin: 10px 0px 10px 0px;
+  padding: 20px;
 
 }
 
@@ -132,4 +135,46 @@ li {
   color: white;
   font-size: 25px;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+table {
+  text-align: left;
+  font-size: 25px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkslategray;
+  color: white;
+  font-weight: bold;
+}
+
+a:link{
+  color: white;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  color: darkgray;
+}
+
+
+
+tr {background-color: indianred}
+
+tr:nth-child(even) {background-color: lightgray;}
+
+tr:hover {background-color: white;}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
 }
