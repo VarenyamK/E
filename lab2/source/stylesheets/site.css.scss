@@ -133,3 +133,31 @@ li {
   font-size: 25px;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+
+table {
+  text-align: left;
+  font-size: 25px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkslategray;
+  color: white;
+  font-weight: bold;
+}
+
+tr {background-color: indianred}
+
+tr:nth-child(even) {background-color: lightgray;}
+
+tr:hover {background-color: white;}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
