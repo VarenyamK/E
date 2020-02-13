@@ -11,18 +11,21 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <header>
-      <a class="OSU_link" href="https://www.osu.edu"><img class="logo" border="0" alt="Ohio State" src="/images/OSU_logo.png"></a>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
-          <li><a href="misc.html">Misc</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Create navigation bar -->
+  <div class="nav">
+    <div class="logo">
+      <a class="OSU_link" href="https://www.osu.edu"><h1>Ohio State</h1></a>
+    </div>
+    <div class="nav_menu">
+      <ul class="nav_links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="misc.html">Misc</a></li>
+      </ul>
+    </div>
+  </div>
     <%= yield %>
   </body>
 </html>
