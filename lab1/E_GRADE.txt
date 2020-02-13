@@ -1,0 +1,9 @@
+Correctness: Game doesn't reprompt user if user enters in negative number of players, zero players, or other character(s) for number of players. Using hints or selecting no set shouldn't display all of the cards in a single set. Cards aren't always added when a set is found. Missing all test cases to validate functionality of individual functions.
+
+Functionality/Features: Some prompts are a little unclear on what to input. Colors are nice, but UI still makes it a little difficult to find valid sets. Quitting the game just ends the game without some sort of exit prompt/display of winner. Nice use of a timer and hint functionality to find remaining valid sets, consider expanding off of these to add some sort of scoring system.
+
+Design: There is room for more modularization. Lab1.rb is a little lengthy for a main script (should extract helper methods elsewhere). Cards.rb should not contain Card, Deck, and String classes. This design would be harder to build off of. Try to use more constants instead of literals. testinput.rb should start with a capital letter for consistency.
+
+Documentation: Readme is sufficient, in the future make it "Readme.md" so that it will show up in proper markdown format. Documentation in code seems pretty good, could have more class-level and complete function-level documentation to explain what is going on at a higher level. Nice commit messages!
+
+Style: Good use of standard Ruby components (ex: .each() function and spaceship operator)! Style seems fairly consistent, but could reference a style guide in the Readme or document loosely-followed style rules.
