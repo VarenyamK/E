@@ -102,6 +102,20 @@ p.miscp{
 
 }
 
+p.titlep{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+p.resp {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 ul.misclist{
   border-style: solid;
   border-width: 4px;
@@ -145,6 +159,11 @@ table {
   width: 100%;
 }
 
+caption {
+  padding-top: 60px;
+  font-size: 40px;
+}
+
 th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -165,8 +184,6 @@ a:visited{
 a:hover{
   color: darkgray;
 }
-
-
 
 tr {background-color: indianred}
 
