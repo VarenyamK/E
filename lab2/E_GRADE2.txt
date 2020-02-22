@@ -1,0 +1,11 @@
+Client Impression: Missing significant amount of information from original site (publications, activities, awards, funding all link to original site instead of linking to a redesigned page). Navigation element at top of each page is a nice touch to allow easier navigation between each page of the site. All pages seem to have bare minimum amount of information and don't attempt to organize the information in a better way than the original site.
+
+Aesthetics: Home page feels squished (consider centering image and text to take up more of the screen). Navigation bar is a great idea, but try to style it differently than a normal list to draw attention to it. Spacing/formatting can be improved to utilize more of the screen and draw attention to different sections of the site. Try to play around with more customizations (colors, fonts, etc.) to make this a large improvement from the original site.
+
+Performance: Performance seems good!
+
+Design: Nice job using embedded ruby and Middleman! Nice job using layout.erb to include navigation bar on all pages (although in the future it would be recommended to put navbar in a separate partial file). Good use of CSS classes and loose coupling between HTML and CSS files. Next step would be to use features of embedded Ruby (loops, if-else, etc.) to reduce amount of repeated code in HTML files.
+
+Documentation: README file should be named README.md so that it shows in proper markdown format. README should be more complete (specify exact Middleman command to run, how to install necessary gems, and some of the design decisions that were made). Nice commit messages! Great documentation throughout HTML files!
+
+Style: Consider citing a style guide in README or documenting loose style rules that were followed. Nice job getting HTML to pass validator! Some HTML files look a little different (spacing, indentation, etc.).
