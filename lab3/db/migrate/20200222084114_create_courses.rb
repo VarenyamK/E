@@ -4,7 +4,6 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :class
       t.integer :section
       t.string :component
-      t.string :days
       t.string :time
       t.string :location
       t.string :professor

@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Course.destroy_all
+
+scrape = Scraper.new
+courses =  scrape.scrape
+Course.creat_from_collection(courses)
