@@ -1,11 +1,12 @@
 require 'nokogiri'
-require 'httparty'
-require 'byebug'
+require 'mechanize'
+
 class Scraper
   def scrape
     classes = []
-    url = "https://web.cse.ohio-state.edu/oportal/schedule_display"
-    unparsed_page = HTTParty.get(url)
+    url = 'https://web.cse.ohio-state.edu/oportal/schedule_display'
+    agent = Mechanize.new { |a| a.user_agent_alias = 'Mac Safari' }
+    unparsed_page = agent.get(url).body
     parsed_page = Nokogiri::HTML(unparsed_page)
     class_names = parsed_page.css('div.panel.panel-default')
     class_names.each do |class_name|
