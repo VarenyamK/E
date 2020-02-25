@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts('this may take a while')
 Course.destroy_all
-
 scrape = Scraper.new
-courses =  scrape.scrape
-Course.creat_from_collection(courses)
+courses = scrape.scrape
+courses.each do |c|
+  Course.create(c)
+end
+puts('database seeding complete')

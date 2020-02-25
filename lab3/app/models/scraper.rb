@@ -16,11 +16,11 @@ class Scraper
         variables = subgroup.css('td')
 
         section = {
-            class: title,
+            class_id: title,
             section: variables[0].text,
             component: variables[1].text,
-            location: variables[2].text,
             time: variables[3].text,
+            location: variables[2].text,
             professor: variables[4].text
         }
         classes << section
@@ -31,12 +31,12 @@ class Scraper
         variables = subgroup.css('td')
 
         section = {
-            name: title,
-            number: variables[0].text,
+            class_id: title,
+            section: variables[0].text,
             component: variables[1].text,
+            time: variables[3].text,
             location: variables[2].text,
-            times: variables[3].text,
-            instructor: variables[4].text
+            professor: variables[4].text
         }
         classes << section
       end
