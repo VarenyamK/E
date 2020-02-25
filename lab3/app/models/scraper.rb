@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'mechanize'
-
 class Scraper
   def scrape
     classes = []
