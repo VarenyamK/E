@@ -20,4 +20,4 @@ rails server
 
 ...and then go to a web browser and navigate to http://localhost:3000/
 
-From here, you will see a table of information about every class offered by Ohio State's CSE Department.  Use buttons to the right of each course to either edit or delete that course.  At the bottom of the table, you will find the "Add Course" button to add a course.  Sort the table by column by clicking on the header of the column by which you wish to sort.
+From here, you will see a table of information about every class offered by Ohio State's CSE Department.  Use buttons to the right of each course to either edit or delete that course.  At the bottom and top of the table, you will find the "Add Course" button to add a course.  Sort the table by column by clicking on the header of the column by which you wish to sort.
