@@ -1,11 +1,11 @@
 <table>
   <tr>
-    <th>Class</th>
-    <th>Section</th>
-    <th>Component</th>
-    <th>Days</th>
-    <th>Location</th>
-    <th>Professor</th>
+    <th><%= link_to "Class", :sort => "class_id" %></th>
+    <th><%= link_to "Section", :sort => "section" %></th>
+    <th><%= link_to "Component", :sort => "component" %></th>
+    <th><%= link_to "Days", :sort => "time" %></th>
+    <th><%= link_to "Location", :sort => "professor" %></th>
+    <th><%= link_to "Professor", :sort => "professor" %></th>
   </tr>
   <% @courses.each do |course| %>
     <tr>
