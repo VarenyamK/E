@@ -10,6 +10,8 @@ INSTRUCTIONS
 
 Execute the following commands from in the lab directory:
 
+bundle install
+
 rails db:migrate
 
 rails db:seed
