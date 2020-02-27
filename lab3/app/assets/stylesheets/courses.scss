@@ -30,11 +30,14 @@ h2.error {
 }
 
 // List of errors is centered and red
-ul {
+
+li {
   color: red;
   text-align: center;
-  list-style-type: circle;
+  list-style-type: none;
 }
+
+
 
 table {
   padding-top: 12px;
