@@ -1,5 +1,6 @@
 <h1>Edit Course</h1>
 <%= form_for :course, url: course_path(@course), method: :patch do |f| %>
+
   <p>
     <%= f.label :class_id %>:
     <%= f.text_field :class_id %><br />
@@ -13,11 +14,6 @@
   <p>
     <%= f.label :component %>:
     <%= f.text_field :component %><br />
-  </p>
-
-  <p>
-    <%= f.label :days %>:
-    <%= f.text_field :days %><br />
   </p>
 
   <p>
@@ -38,4 +34,22 @@
   <p>
     <%= f.submit %>
   </p>
-<% end %>
+
+  <%-# checks for errors in the data entered on the form. -%>
+  <%if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%-# tells the user that the data wasn't saved due to error or errors, also prints the number of errors. -%>
+        <%= pluralize(@course.errors.count, "error")
+        %> Prohibited the data from being saved:
+      </h2>
+      <%-# Prints error message -%>
+      <ul>
+        <% @course.errors.full_messages.each do
+        |msg|%>
+          <li><%= msg %></li>
+          </ul>
+          </div>
+        <% end %>
+    <% end %>
+<%end %>

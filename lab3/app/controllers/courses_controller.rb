@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-
+    # checks validity of the course by using validations, only then allows user to save
     if @course.save
       redirect_to @course
     else
