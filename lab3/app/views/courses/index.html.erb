@@ -11,7 +11,10 @@
     <th><%= link_to "Professor", :sort => "professor" %></th>
   </tr>
   <% @courses.each do |course| %>
-    <tr>
+
+    <tr onclick="location.href='<%=course_path(course)%>'">
+
+
       <td><%= course.class_id %></td>
       <td><%= course.section %></td>
       <td><%= course.component %></td>
@@ -22,8 +25,9 @@
       <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
                       method: :delete,
                       data: {confirm: 'Are you sure?'}%></td>
+
     </tr>
-  <% end %>
+  <%end%>
 </table>
   <p>
   <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
