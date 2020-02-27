@@ -1,3 +1,79 @@
-// Place all the styles related to the Courses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+p {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+//Removed underline from links
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+h2 {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+}
+
+// Heading for error if in correct data is entered is centered and red
+h2.error {
+  color: red;
+  text-align: center;
+  padding-top: 6px;
+}
+
+// List of errors is centered and red
+ul {
+  color: red;
+  text-align: center;
+  list-style-type: circle;
+}
+
+table {
+  padding-top: 12px;
+  padding-left: 12px;
+  text-align: left;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: white;
+  background-color: darkred;
+  font-weight: bold;
+}
+
+tr {
+  background-color: lightcoral;
+}
+
+// Alternate row background color
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+tr:hover{
+  background-color: whitesmoke;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+// Buttons in table disregard table styling
+td:nth-child(7), td:nth-child(8) {
+  border: none;
+  background-color: lightgoldenrodyellow;
+}
