@@ -9,6 +9,7 @@ class Scraper
     class_names.each do |class_name|
 
       title = class_name.css('a').text
+      title = title.split[0..1].join(' ')
       subgroups0 = class_name.css('tr.group0')
       subgroups0.each do |subgroup|
         variables = subgroup.css('td')
