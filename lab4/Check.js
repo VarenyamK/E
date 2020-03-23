@@ -1,17 +1,17 @@
 class Check{
     constructor(){
         //declare global
-        this.cards = []
+        this.cards = [];
     }
 
-    check(var1, var2, var3, delt){
+    check(var1, var2, var3){
         //declare variables
         let s;
         let count;
         let t;
-        this.cards[0] = delt[var1];
-        this.cards[1] = delt[var2];
-        this.cards[2] = delt[var3];
+        this.cards[0] = var1;
+        this.cards[1] = var2;
+        this.cards[2] = var3;
 
         let check = true;
         //go through each number section of the 3 cards and compare them with each other
