@@ -8,11 +8,33 @@ main {
 }
 
 #board {
-	text-align: center;
+    text-align: center;
+
 }
+
+#add{
+    text-align: center;
+}
+
 
 #hand {
 	padding-left: 0px;
+}
+
+.dealbutton{
+    border: darkgoldenrod;
+    color: red;
+    text-decoration: darkgoldenrod;
+    font-size: 30px
+}
+
+.dealbutton:hover {
+    background-color: whitesmoke;
+}
+.dealbutton:active{
+    background-color: darkred;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .card {
@@ -24,6 +46,13 @@ main {
     width: 100px;
     height: 134px;
     padding: 20px;
+}
+
+.card:hover{
+    background-color: grey;
+}
+.card::selection{
+    background-color: darkgoldenrod;
 }
 
 .slot {
