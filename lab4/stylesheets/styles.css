@@ -1,0 +1,41 @@
+main {
+  border: 1px solid black;
+  border-radius: 25px;
+  margin: 0px auto 0px auto;
+  background: #367588;
+  background-image: url("../images/felt.png");
+  max-width: 55%;
+}
+
+#board {
+	text-align: center;
+}
+
+#hand {
+	padding-left: 0px;
+}
+
+.card {
+	background-color: white;
+	display: inline-block;
+	list-style: none;
+    border: 1px solid black;
+  	border-radius: 25px;
+    width: 100px;
+    height: 134px;
+    padding: 20px;
+}
+
+.slot {
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: 10px;
+}
+
+.imagecontainer {
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    		<meta charset="UTF-8">
-    		<title>Game of Set</title>
-    		<link href="styles.css" rel="stylesheet">
-    		<script src="Card.js"></script>
-    		<script src="Deck.js"></script>
-    		<script src="Check.js"></script>
-    		<script src="Player.js"></script>
-    		<script src="test.js"></script>
-	</head>
-	<body>
-		<h1>S E T</h1>
-		<h1>Directions</h1>
-		<p><i>Identify a set of 3 cards in which each feature (color, shape, shade, number) is different on each card - or where each card in the set has 1 feature in common.</i></p>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>Game of Set</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+	<main>
+		<div id="board">
+			<button type="button" onclick="deal3(hand, deck)">Deal 3</button>
+
+			<ul id="hand">
+			</ul>
+		</div>
+	</main>
+	<script src="Card.js"></script>
+    <script src="Deck.js"></script>
+    <script src="view.js"></script>
+    <script src="game.js"></script>
+    <script src="Check.js"></script>
+    <script src="Player.js"></script>
+    <script src="test.js"></script>
+</body>
 </html>

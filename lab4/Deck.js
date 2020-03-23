@@ -8,13 +8,15 @@ class Deck {
         const colors = ['red', 'green', 'blue'];
         const shapes = ['diamond', 'oval', 'squiggle'];
         const shadings = ['hollow', 'shaded', 'filled'];
+        var id = 0;
         //Initialize the deck of cards in the deck array using for each loops
         for (let number in numbers) {
             for (let color in colors) {
                 for (let shape in shapes) {
                     for (let shading in shadings) {
                         //add the values from the array to the card object
-                        const card = new Card(`${numbers[number]}`, `${colors[color]}`, `${shapes[shape]}` , `${shadings[shading]}`);
+                        const card = new Card(`${numbers[number]}`, `${colors[color]}`, `${shapes[shape]}`, `${shadings[shading]}`, id);
+                        id++;
                         this.deck.push(card);
                     }
                 }
@@ -40,19 +42,3 @@ class Deck {
         return this.deck.pop();
     }
 }
-
-
-//For testing/debugging purposes
-const deck = new Deck();
-
-console.log(deck.deck);
-document.write('original deck');
-document.write(deck.deal());
-console.log(deck.deck);
-deck.shuffle();
-document.write('deck after shuffle');
-console.log(deck.deck);
-document.write(deck.deal());
-deck.deal();
-document.write('deck after deal');
-console.log(deck.deck);
