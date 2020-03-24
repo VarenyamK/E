@@ -137,49 +137,56 @@ function addlisteners() {
 	//function to control clicks
 	var myfunc  = function(){
 		var check = new Check();
-		count = count + 1;
-		this.style.backgroundColor = "grey";
-		cards.push(this.id);
-		//if 3 clicks check cards and check if same clicked
-		if(count == 3){
+		if(cards.includes(this.id)){
+			var temp = findcard(cards);
+			cards.splice(temp, 1);
+			count = count - 1;
+			this.style.backgroundColor = "white";
+		}else {
+			count = count + 1;
+			this.style.backgroundColor = "grey";
+			cards.push(this.id);
+			//if 3 clicks check cards and check if same clicked
+			if (count == 3) {
 				//get variables
 				var i = cards.pop();
 				var j = cards.pop();
 				var k = cards.pop();
-			if ( i == j || j==k || k==i){
-				alert("Please select three different cards!");
-			}else {
-				//find in hand
-				var var1 = findID(i, hand);
-				var var2 = findID(j, hand);
-				var var3 = findID(k, hand);
+				if (i == j || j == k || k == i) {
+					alert("Please select three different cards!");
+				} else {
+					//find in hand
+					var var1 = findID(i, hand);
+					var var2 = findID(j, hand);
+					var var3 = findID(k, hand);
 
-				// check if a set
-				var tf = check.check(var1, var2, var3);
+					// check if a set
+					var tf = check.check(var1, var2, var3);
 
-				// tell user
-				if(tf.toString() == 'false'){
-					alert("This is not a valid set. Please try again.")
-				}else{
-					alert("Congrats, you found a set!")
-				}
-				// if true delete from everything
-				if (tf == true) {
-					delete3(i, j, k);
-					//only redeal if hand is less than 12
-					console.log(deck.deck.length)
-					if (hand.length < 12 && (deck.deck.length > 0) ) {
-						deal3();
+					// tell user
+					if (tf.toString() == 'false') {
+						alert("This is not a valid set. Please try again.")
+					} else {
+						alert("Congrats, you found a set!")
 					}
-					console.log(hand);
-					console.log(deck);
+					// if true delete from everything
+					if (tf == true) {
+						delete3(i, j, k);
+						//only redeal if hand is less than 12
+						console.log(deck.deck.length)
+						if (hand.length < 12 && (deck.deck.length > 0)) {
+							deal3();
+						}
+						console.log(hand);
+						console.log(deck);
 
+					}
 				}
+				//clear the grey
+				clearelementcolor(elements);
+				//reset click count
+				count = 0;
 			}
-			//clear the grey
-			clearelementcolor(elements);
-			//reset click count
-			count = 0;
 		}
 
 	};
@@ -240,4 +247,14 @@ function deletefromhand( i){
 		}
 	}
 
+}
+
+function findcard(cards, id){
+	var ret = 0;
+	for( var i = 0 ; i < cards.length; i ++){
+		if(id == cards[i]){
+			ret = i;
+		}
+	}
+	return ret;
 }
