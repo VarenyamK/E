@@ -67,3 +67,9 @@ main {
     transform: translateY(-50%);
 }
 
+body {
+	background-color: whitesmoke;
+	color: dimgray;
+	font-family: 'Libre Baskerville', sans-serif;
+	font-size: 80%;
+}
