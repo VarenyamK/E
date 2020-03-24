@@ -15,7 +15,7 @@ function displayHand(hand) {
 }
 
 function deal3 () {
-	if (deck.length != 0) {
+	if (deck.deck.length != 0) {
 		for (i = 0; i < 3; i++) {
 			hand.push(deck.deal());
 		}
@@ -120,11 +120,13 @@ function addlisteners() {
 				// if true delete from everything
 				if (tf == true) {
 					delete3(i, j, k);
-					console.log(hand);
 					//only redeal if hand is less than 12
-					if (hand.length < 12) {
+					console.log(deck.deck.length)
+					if (hand.length < 12 && (deck.deck.length > 0) ) {
 						deal3();
 					}
+					console.log(hand);
+					console.log(deck);
 
 				}
 			}
