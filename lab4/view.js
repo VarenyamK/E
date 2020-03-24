@@ -25,9 +25,18 @@ function deal3 () {
 		displayHand(new_cards);
 	}
 }
+
+function userHint (){
+	let x = 'true';
+	hint(hand, x);
+
+}
+
+
 //function finds a set in the 12 card hand and gives the hint to the user
-function hint () {
+function hint (hand, x) {
 	let ctf = 'false';
+
 	let check = new Check();
 	let ln = hand.length;
 	for(i =0; i < ln; i++){
@@ -44,41 +53,78 @@ function hint () {
 						i = i+1;
 						j = j+1;
 						k = k +1;
-						alert('Hint: card ' + i + ' card ' + j + ' card ' + k + ' is  a set')
-						break;
+						if(x=='true'){
 
+							giveHint(i,j,k);
+						}
+						break;
 					}
 				}
+				else{
 
+					ctf = 'false';
+				}
 			}
 			if(ctf.toString() == 'true'){
 					break;
 			}
-
 		}
-
 		if(ctf.toString() == 'true'){
 			break;
 		}
-	}
-	if(ctf == 'false'){
 
-		alert('No hint available, no set found');
+		}
+		if(x=='true'){
+
+			if(ctf == 'false'){
+				alert('No set found, if there are no more cards to deal, your game is over. Your time is on the left');
+		}
+
+
 	}
+
+	return ctf.toString();
+}
+
+//gives an alert to user of the hint
+function giveHint (i,j,k){
+
+	alert('Hint: card ' + i + ' card ' + j + ' card and one more card is a set')
 }
 
 //function keeps a timer to the side in seconds so the player can see how long it took to find set/finish game
 let counter = 0;
 let minute = 0;
-function time () {
 
-	counter ++;
-	if(counter == 60){
+function start(){
 
-		minute++;
-		counter = 0;
+
+	let stp = setInterval(time, 1000);
+	let x = 'false';
+	let chck = hint(hand,x)
+
+	if(chck == 'false' && hand.length < 12){
+
+		alert('Total time taken: ' + minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds');
+		clearInterval(stp);
 	}
-	document.getElementById('txt').innerHTML = minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds';
+
+}
+
+function time () {
+	let x = 'false';
+	let chck = hint(hand,x)
+
+	if(chck == 'true' && deck.length != 12){
+		counter ++;
+		if(counter == 60){
+
+			minute++;
+			counter = 0;
+		}
+		document.getElementById('txt').innerHTML = minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds';
+	}
+
 }
 
 

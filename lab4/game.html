@@ -5,14 +5,14 @@
     <title>Game of Set</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
-<body onload="setInterval(time, 1000)">
+<body onload="start()">
 
     	<div id="txt"></div>
 	<main>
 		<div id="board">
 		<button class="dealbutton" type="button" onclick="deal3(hand, deck)">Deal 3</button>
             	<button class="dealbutton" type="button">Add Player</button>
-            	<button class="dealbutton" type="button" onclick="hint(hand)">Hint</button>
+            	<button class="dealbutton" type="button" onclick="userHint(hand)">Hint</button>
 
 
 
