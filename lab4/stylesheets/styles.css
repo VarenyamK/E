@@ -12,7 +12,7 @@ main {
 
 }
 
-#add{
+#new{
     text-align: center;
 }
 
@@ -49,11 +49,10 @@ main {
 }
 
 .card:hover{
-    background-color: grey;
+    /*important tag, so eventlistener doesn't override it resulting in no hover after first click*/
+    background-color: grey !important;
 }
-.card::selection{
-    background-color: darkgoldenrod;
-}
+
 
 .slot {
 	display: block;

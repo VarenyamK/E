@@ -26,6 +26,8 @@ function deal3 () {
 	}
 }
 
+
+
 function addlisteners() {
 	var count = 0;
 	var cards = [];
@@ -35,7 +37,7 @@ function addlisteners() {
 	var myfunc  = function(){
 		var check = new Check();
 		count = count + 1;
-		this.style.backgroundColor = "green";
+		this.style.backgroundColor = "grey";
 		cards.push(this.id);
 		//if 3 clicks check cards and check if same clicked
 		if(count == 3){
@@ -44,7 +46,7 @@ function addlisteners() {
 				var j = cards.pop();
 				var k = cards.pop();
 			if ( i == j || j==k || k==i){
-				alert("do click card multiple times");
+				alert("Please select three different cards!");
 			}else {
 				//find in hand
 				var var1 = findID(i, hand);
@@ -55,7 +57,11 @@ function addlisteners() {
 				var tf = check.check(var1, var2, var3);
 
 				// tell user
-				alert(tf.toString());
+				if(tf.toString() == 'false'){
+					alert("This is not a valid set. Please try again.")
+				}else{
+					alert("Congrats, you found a set!")
+				}
 				// if true delete from everything
 				if (tf == true) {
 					delete3(i, j, k);
@@ -67,7 +73,7 @@ function addlisteners() {
 
 				}
 			}
-			//clear the green
+			//clear the grey
 			clearelementcolor(elements);
 			//reset click count
 			count = 0;
@@ -75,9 +81,10 @@ function addlisteners() {
 
 	};
 	//add event listeners to every card
-	for (var i = 0; i < elements.length; i++){
+	for (var i = 0; i < elements.length; i++) {
 		elements[i].addEventListener('click', myfunc, false);
 	}
+
 
 }
 
