@@ -25,6 +25,61 @@ function deal3 () {
 		displayHand(new_cards);
 	}
 }
+//function finds a set in the 12 card hand and gives the hint to the user
+function hint () {
+	let ctf = 'false';
+	let check = new Check();
+	let ln = hand.length;
+	for(i =0; i < ln; i++){
+		for(j = 0; j <ln; j++){
+			for(k = 0; k<ln; k++){
+
+				let c1 = hand[i];
+				let c2 = hand[j];
+				let c3 = hand[k];
+
+				 ctf = check.check(c1, c2, c3);
+				if ( i !== j && j !==k && k !==i){
+					if(ctf.toString() == 'true'){
+						i = i+1;
+						j = j+1;
+						k = k +1;
+						alert('Hint: card ' + i + ' card ' + j + ' card ' + k + ' is  a set')
+						break;
+
+					}
+				}
+
+			}
+			if(ctf.toString() == 'true'){
+					break;
+			}
+
+		}
+
+		if(ctf.toString() == 'true'){
+			break;
+		}
+	}
+	if(ctf == 'false'){
+
+		alert('No hint available, no set found');
+	}
+}
+
+//function keeps a timer to the side in seconds so the player can see how long it took to find set/finish game
+let counter = 0;
+let minute = 0;
+function time () {
+
+	counter ++;
+	if(counter == 60){
+
+		minute++;
+		counter = 0;
+	}
+	document.getElementById('txt').innerHTML = minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds';
+}
 
 
 
