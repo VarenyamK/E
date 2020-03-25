@@ -1,0 +1,9 @@
+Correctness: Nice job scraping course name and appropriate section info (number, instructor, time, location, etc.)! Nice error-checking for user entering in invalid course components. Good job having db:seed delete current data in database to avoid duplicate data. Seems like scraper would be fairly easy to change if site format changed. No meaningful test cases.
+
+Functionality/Features: Output page looks pretty nice and is well-organized! Great addition of features to sort by class categories, add classes, edit classes, and delete classes! These features should translate well to requirements of project 5. While there is not advanced data analysis, these additional features provide an upgrade over the original site.
+
+Design: Great model-view-controller design with rails! Great routing with controllers and nice clean embedded ruby for output page! Scraper is simple and concise.
+
+Documentation: Nice thorough README! Nice in-code documentation for confusing portions of code and for all of the scraper. Consider adding more file-level and function-level documentation to make it more clear what each file adds to the project. Good commit messages!
+
+Style: Consider citing style guide or at least loose style rules that are followed. Good use of standard ruby features and good practices for rails!
