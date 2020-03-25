@@ -258,3 +258,15 @@ function findcard(cards, id){
 	}
 	return ret;
 }
+
+function addPlayer(){
+	let tOrF = true;
+	while (tOrF){
+		let playerName =prompt("Enter player name.");
+		if (players.includes(playerName)) {
+			alert("Player name already chosen. Choose another name.");
+		} else {
+			players.push(new Player(name));
+		}
+	}
+}

@@ -1,3 +1,4 @@
+var players = [];
 const deck = new Deck();
 deck.shuffle();
 
