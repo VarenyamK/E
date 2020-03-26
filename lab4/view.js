@@ -106,6 +106,7 @@ function start(){
 	if(chck == 'false' && hand.length < 12){
 
 		alert('Total time taken: ' + minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds');
+		alert('The winner is ' + winner(players));
 		clearInterval(stp);
 	}
 
@@ -170,7 +171,7 @@ function addlisteners() {
 						let playerId = prompt("Congrats, you found a set! Enter player number.");
 
 						// Checks for valid player number
-						while (isNaN(playerId) || playerId > players.length) {
+						while (playerId == null || isNaN(playerId) || playerId > players.length) {
 							playerId = prompt("Invalid player number. Enter valid player number.")
 						}
 
@@ -272,7 +273,9 @@ function findcard(cards, id){
 function addPlayer(){
 	let id = players.length + 1;
 	let playerName = prompt("Enter name for player " + id + ".");
-	players.push(new Player(id, name));
+	if (playerName != null) {
+		players.push(new Player(id, name));
+	}
 }
 
 // Returns the player with the most sets
@@ -286,5 +289,5 @@ function getWinner (players) {
 			winner = players[j];
 		}
 	}
-	return winner;
+	return winner.name;
 }
