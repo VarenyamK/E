@@ -106,7 +106,7 @@ function start(){
 	if(chck == 'false' && hand.length < 12){
 
 		alert('Total time taken: ' + minute.toString() + ' minute(s) ' +  counter.toString() + ' seconds');
-		alert('The winner is ' + winner(players));
+		alert('The winner is ' + getWinner(players));
 		clearInterval(stp);
 	}
 
@@ -168,16 +168,21 @@ function addlisteners() {
 					if (tf.toString() == 'false') {
 						alert("This is not a valid set. Please try again.")
 					} else {
-						let playerId = prompt("Congrats, you found a set! Enter player number.");
+						if (players.length != 0) {
+							let playerId = prompt("Congrats, you found a set! Enter player number.");
 
-						// Checks for valid player number
-						while (playerId == null || isNaN(playerId) || playerId > players.length) {
-							playerId = prompt("Invalid player number. Enter valid player number.")
+							// Checks for valid player number
+							while (playerId == null || isNaN(playerId) || playerId > players.length) {
+								playerId = prompt("Invalid player number. Enter valid player number.")
+							}
+
+							// Increases user set number by one
+							let player = players[playerId - 1];
+							player.set++;
+							playersTable(players);
+						} else {
+							alert("Congrats, you found a set!");
 						}
-
-						// Increases user set number by one
-						let player = players[playerId - 1];
-						player.set++;
 					}
 					// if true delete from everything
 					if (tf == true) {
@@ -274,7 +279,8 @@ function addPlayer(){
 	let id = players.length + 1;
 	let playerName = prompt("Enter name for player " + id + ".");
 	if (playerName != null) {
-		players.push(new Player(id, name));
+		players.push(new Player(id, playerName));
+		playersTable(players);
 	}
 }
 
@@ -290,4 +296,18 @@ function getWinner (players) {
 		}
 	}
 	return winner.name;
+}
+
+function playersTable(players) {
+	let playerTable = "<tr><th>Player</th><th>Name</th><th>Sets</th></tr>";
+	let player = players[0];
+	for (let j=0; j<players.length; j++) {
+		player = players[j];
+		playerTable += "<tr>";
+		playerTable += "<td>Player " + player.id + "</td>";
+		playerTable += "<td>" + player.name + "</td>";
+		playerTable += "<td>Sets found: " + player.set + "</td>";
+		playerTable += "</tr>";
+	}
+	document.getElementById('playersTable').innerHTML = playerTable;
 }
