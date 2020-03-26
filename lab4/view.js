@@ -167,7 +167,12 @@ function addlisteners() {
 					if (tf.toString() == 'false') {
 						alert("This is not a valid set. Please try again.")
 					} else {
-						alert("Congrats, you found a set!")
+						let playerId = prompt("Congrats, you found a set! Enter player number.");
+						while (isNaN(playerId) || playerId > players.length) {
+							playerId = prompt("Invalid player number. Enter valid player number.")
+						}
+						let player = players[playerId - 1];
+						player.set++;
 					}
 					// if true delete from everything
 					if (tf == true) {
@@ -260,13 +265,20 @@ function findcard(cards, id){
 }
 
 function addPlayer(){
-	let tOrF = true;
-	while (tOrF){
-		let playerName =prompt("Enter player name.");
-		if (players.includes(playerName)) {
-			alert("Player name already chosen. Choose another name.");
-		} else {
-			players.push(new Player(name));
+	let id = players.length + 1;
+	let playerName = prompt("Enter name for player " + id + ".");
+	players.push(new Player(id, name));
+}
+
+
+function getWinner (players) {
+	let winner = player[0];
+	let current = player[0];
+	for (let j=1; j<players.length; j++) {
+		current = players[j];
+		if (winner.set < current.set) {
+			winner = players[j];
 		}
 	}
+	return winner;
 }
