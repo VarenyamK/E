@@ -143,9 +143,11 @@ function addlisteners() {
 			cards.splice(temp, 1);
 			count = count - 1;
 			this.style.backgroundColor = "white";
+			this.style.border = "2px solid black";
 		}else {
 			count = count + 1;
 			this.style.backgroundColor = "grey";
+			this.style.border = "2px solid yellow";
 			cards.push(this.id);
 			//if 3 clicks check cards and check if same clicked
 			if (count == 3) {
@@ -217,6 +219,7 @@ function clearelementcolor(elements){
 	//make everything white
 	for (var i = 0; i < elements.length; i++){
 		elements[i].style.backgroundColor = "white";
+		elements[i].style.border = "2px solid black";
 	}
 }
 
