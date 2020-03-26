@@ -168,9 +168,13 @@ function addlisteners() {
 						alert("This is not a valid set. Please try again.")
 					} else {
 						let playerId = prompt("Congrats, you found a set! Enter player number.");
+
+						// Checks for valid player number
 						while (isNaN(playerId) || playerId > players.length) {
 							playerId = prompt("Invalid player number. Enter valid player number.")
 						}
+
+						// Increases user set number by one
 						let player = players[playerId - 1];
 						player.set++;
 					}
@@ -264,16 +268,18 @@ function findcard(cards, id){
 	return ret;
 }
 
+// Adds a new player to the players array
 function addPlayer(){
 	let id = players.length + 1;
 	let playerName = prompt("Enter name for player " + id + ".");
 	players.push(new Player(id, name));
 }
 
-
+// Returns the player with the most sets
 function getWinner (players) {
 	let winner = player[0];
 	let current = player[0];
+
 	for (let j=1; j<players.length; j++) {
 		current = players[j];
 		if (winner.set < current.set) {
