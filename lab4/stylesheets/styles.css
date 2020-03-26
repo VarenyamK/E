@@ -74,3 +74,27 @@ body {
   font-family: 'Libre Baskerville', sans-serif;
   font-size: 80%;
 }
+
+table {
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Libre Baskerville', sans-serif;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+}
+
+td {
+    padding: 8px;
+}
+
+tr {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: lightskyblue;
+}

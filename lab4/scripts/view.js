@@ -301,14 +301,14 @@ function getWinner (players) {
 	return winner.name;
 }
 
+//Makes player table
 function playersTable(players) {
-	let playerTable = "<tr><th>Player</th><th>Name</th><th>Sets</th></tr>";
+	let playerTable = "";
 	let player = players[0];
 	for (let j=0; j<players.length; j++) {
 		player = players[j];
 		playerTable += "<tr>";
-		playerTable += "<td>Player " + player.id + "</td>";
-		playerTable += "<td>" + player.name + "</td>";
+		playerTable += "<td>Player " + player.id + ": " + player.name +"</td>";
 		playerTable += "<td>Sets found: " + player.set + "</td>";
 		playerTable += "</tr>";
 	}
