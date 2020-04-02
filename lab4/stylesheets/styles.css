@@ -18,7 +18,7 @@ main {
 
 
 #hand {
-	padding-left: 0px;
+  padding-left: 0px;
 }
 
 .dealbutton{
@@ -38,14 +38,15 @@ main {
 }
 
 .card {
-	background-color: white;
-	display: inline-block;
-	list-style: none;
-    border: 1px solid black;
-  	border-radius: 25px;
+  background-color: white;
+  display: inline-block;
+  list-style: none;
+    border: 2px solid black;
+    border-radius: 25px;
     width: 100px;
     height: 134px;
     padding: 20px;
+    margin: 10px 10px;
 }
 
 .card:hover{
@@ -55,21 +56,45 @@ main {
 
 
 .slot {
-	display: block;
-	margin-left: auto;
-  	margin-right: auto;
-  	padding: 10px;
+  display: block;
+  margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
 }
 
 .imagecontainer {
-	position: relative;
+  position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
 body {
-	background-color: whitesmoke;
-	color: dimgray;
-	font-family: 'Libre Baskerville', sans-serif;
-	font-size: 80%;
+  background-color: whitesmoke;
+  color: dimgray;
+  font-family: 'Libre Baskerville', sans-serif;
+  font-size: 80%;
+}
+
+table {
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Libre Baskerville', sans-serif;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+}
+
+td {
+    padding: 8px;
+}
+
+tr {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: lightskyblue;
 }
