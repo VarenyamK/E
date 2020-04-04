@@ -5,11 +5,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% if user_signed_in? %>
+      <%= stylesheet_link_tag    'navheader'%>
+    <% end %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render "shared/nav" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

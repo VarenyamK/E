@@ -1,0 +1,7 @@
+<ul id="navbar">
+  <li><%= link_to "Home", root_path%></li>
+  <% if current_user.admin? %>
+    <li><%= link_to "Admin Panel", admin_path%></li>
+  <% end %>
+  <li id="logout"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+</ul>
