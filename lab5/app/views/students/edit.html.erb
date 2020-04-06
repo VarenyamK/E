@@ -1,0 +1,53 @@
+<%= form_with scope: :student, url: students_path(@student), local: true do |f| %>
+  <p>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname  %>
+  </p>
+  <p>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :dotnumber %>
+    <%= f.text_field :dotnumber %>
+  </p>
+  <p>
+    <%= f.label :mondaystart %>
+    <%= f.time_select :mondaystart %>
+    <%= f.label :mondayend %>
+    <%= f.time_select :mondayend %>
+  </p>
+  <p>
+    <%= f.label :tuesdaystart %>
+    <%= f.time_select :tuesdaystart %>
+    <%= f.label :tuesdayend %>
+    <%= f.time_select :tuesdayend %>
+  </p>
+  <p>
+    <%= f.label :wednesdaystart %>
+    <%= f.time_select :wednesdaystart %>
+    <%= f.label :wednesdayend %>
+    <%= f.time_select :wednesdayend %>
+  </p>
+  <p>
+    <%= f.label :thursdaystart %>
+    <%= f.time_select :thursdaystart %>
+    <%= f.label :thursdayend %>
+    <%= f.time_select :thursdayend %>
+  </p>
+  <p>
+    <%= f.label :fridaystart %>
+    <%= f.time_select :fridaystart %>
+    <%= f.label :fridayend %>
+    <%= f.time_select :fridayend %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+
+
+<%end%>
+
+<%= link_to 'Back', student_path(@student) %>
+

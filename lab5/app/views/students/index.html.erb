@@ -1,0 +1,39 @@
+<table>
+  <thead>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Dot Number</th>
+  <th>Monday Start:</th>
+  <th>Monday end:</th>
+  <th>Tuesday Start:</th>
+  <th>Tuesday end:</th>
+  <th>Wednesday Start:</th>
+  <th>Wednesday end:</th>
+  <th>Thursday Start:</th>
+  <th>Thursday end:</th>
+  <th>Friday Start:</th>
+  <th>Friday end:</th>
+  <th>Email:</th>
+  </thead>
+  <tbody>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.firstname %></td>
+      <td><%= student.lastname %></td>
+      <td><%= student.dotnumber %></td>
+      <td><%= student.mondaystart %></td>
+      <td><%= student.mondayend %></td>
+      <td><%= student.tuesdaystart %></td>
+      <td><%= student.tuesdayend %></td>
+      <td><%= student.wednesdaystart %></td>
+      <td><%= student.wednesdayend %></td>
+      <td><%= student.thursdaystart %></td>
+      <td><%= student.thursdayend %></td>
+      <td><%= student.fridaystart %></td>
+      <td><%= student.fridayend %></td>
+      <td><%= student.email %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %>

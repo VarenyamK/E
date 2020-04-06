@@ -1,0 +1,55 @@
+<p>
+  <strong>First Name: </strong>
+  <%= @student.firstname%>
+</p>
+<p>
+  <strong>Last Name: </strong>
+  <%= @student.lastname%>
+</p>
+<p>
+  <strong>Dotnumber: </strong>
+  <%= @student.dotnumber%>
+</p>
+<p>
+  <strong>Monday Availability: </strong>
+  <%= @student.mondaystart%>
+  to
+  <%= @student.mondayend%>
+</p>
+<p>
+  <strong>Tuesday Availability: </strong>
+  <%= @student.tuesdaystart%>
+  to
+  <%= @student.tuesdayend%>
+</p>
+<p>
+  <strong>Wednesday Availability: </strong>
+  <%= @student.wednesdaystart%>
+  to
+  <%= @student.wednesdayend%>
+</p>
+<p>
+  <strong>Thursday Availability: </strong>
+  <%= @student.thursdaystart%>
+  to
+  <%= @student.thursdayend%>
+</p>
+<p>
+  <strong>Friday Availability: </strong>
+  <%= @student.fridaystart%>
+  to
+  <%= @student.fridayend%>
+</p>
+<p>
+  <strong>Monday Availability: </strong>
+  <%= @student.mondaystart%>
+  to
+  <%= @student.mondayend%>
+</p>
+<p>
+  <strong>Email: </strong>
+  <%= @student.email%>
+</p>
+
+<p><%= link_to "Edit", edit_student_path(@student) %></p>
+<%= link_to 'Back', studenthome_path %>

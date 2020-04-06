@@ -1,0 +1,8 @@
+<%if Student.exists?(:email => @user.email) %>
+  <%student = Student.find_by_email(@user.email) %>
+  <p>You have already submited a TA request form</p>
+  <p><%= link_to "View/edit Your Submission", student_path(student) %></p>
+<%else%>
+  <p>You have not yet submitted a TA request form</p>
+  <p><%= link_to "Create New Submission", new_student_path %></p>
+<%end %>
