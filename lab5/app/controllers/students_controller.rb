@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
   end
 
   def new
+    @student = Student.new
   end
 
   def index
@@ -38,7 +39,8 @@ class StudentsController < ApplicationController
                                     :mondaystart, :mondayend, :tuesdaystart, :tuesdayend,
                                     :wednesdaystart, :wednesdayend,
                                     :thursdaystart, :thursdayend, :fridaystart,
-                                    :fridayend)
+                                    :fridayend,
+                                    grades_attributes: Grade.attribute_names.map(&:to_sym).push(:_destroy))
   end
 
 

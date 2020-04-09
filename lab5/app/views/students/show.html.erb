@@ -1,3 +1,6 @@
+<h2>
+  Your Information
+</h2>
 <p>
   <strong>First Name: </strong>
   <%= @student.firstname%>
@@ -10,42 +13,58 @@
   <strong>Dotnumber: </strong>
   <%= @student.dotnumber%>
 </p>
+<h2>
+  Available Times:
+</h2>
 <p>
   <strong>Monday Availability: </strong>
-  <%= @student.mondaystart%>
+  <%= @student.mondaystart.hour%>:<%= @student.mondaystart.min%>
   to
-  <%= @student.mondayend%>
+  <%= @student.mondayend.hour%>:<%= @student.mondayend.min%>
 </p>
 <p>
   <strong>Tuesday Availability: </strong>
-  <%= @student.tuesdaystart%>
+  <%= @student.tuesdaystart.hour%>:<%= @student.tuesdaystart.min%>
   to
-  <%= @student.tuesdayend%>
+  <%= @student.tuesdayend.hour%>:<%= @student.tuesdayend.hour%>
 </p>
 <p>
   <strong>Wednesday Availability: </strong>
-  <%= @student.wednesdaystart%>
+  <%= @student.wednesdaystart.hour%>:<%= @student.wednesdaystart.min%>
   to
-  <%= @student.wednesdayend%>
+  <%= @student.wednesdayend.hour%>:<%= @student.wednesdayend.min%>
 </p>
 <p>
   <strong>Thursday Availability: </strong>
-  <%= @student.thursdaystart%>
+  <%= @student.thursdaystart.hour%>:<%= @student.thursdaystart.min%>
   to
-  <%= @student.thursdayend%>
+  <%= @student.thursdayend.hour%>:<%= @student.thursdayend.min%>
 </p>
 <p>
   <strong>Friday Availability: </strong>
-  <%= @student.fridaystart%>
+  <%= @student.fridaystart.hour%>:<%= @student.fridaystart.min%>
   to
-  <%= @student.fridayend%>
+  <%= @student.fridayend.hour%>:<%= @student.fridayend.min%>
 </p>
-<p>
-  <strong>Monday Availability: </strong>
-  <%= @student.mondaystart%>
-  to
-  <%= @student.mondayend%>
-</p>
+
+<h2>
+  Your classes:
+</h2>
+<table>
+  <tr>
+    <th>Class</th>
+    <th>Grade</th>
+  </tr>
+
+
+  <% @student.grades.each do |grade| %>
+   <tr>
+     <td><%=grade.section %></td>
+     <td><%=grade.grade %></td>
+   </tr>
+  <% end %>
+</table>
+
 <p>
   <strong>Email: </strong>
   <%= @student.email%>

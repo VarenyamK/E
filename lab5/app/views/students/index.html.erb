@@ -14,6 +14,8 @@
   <th>Friday Start:</th>
   <th>Friday end:</th>
   <th>Email:</th>
+  <th>grades</th>
+
   </thead>
   <tbody>
   <% @students.each do |student| %>
@@ -32,6 +34,14 @@
       <td><%= student.fridaystart %></td>
       <td><%= student.fridayend %></td>
       <td><%= student.email %></td>
+      <td>
+        <% student.grades.each do |grade| %>
+
+            <p><%=grade.section %>
+             <%=grade.grade %></p>
+
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
