@@ -23,16 +23,16 @@
       <td><%= student.firstname %></td>
       <td><%= student.lastname %></td>
       <td><%= student.dotnumber %></td>
-      <td><%= student.mondaystart %></td>
-      <td><%= student.mondayend %></td>
-      <td><%= student.tuesdaystart %></td>
-      <td><%= student.tuesdayend %></td>
-      <td><%= student.wednesdaystart %></td>
-      <td><%= student.wednesdayend %></td>
-      <td><%= student.thursdaystart %></td>
-      <td><%= student.thursdayend %></td>
-      <td><%= student.fridaystart %></td>
-      <td><%= student.fridayend %></td>
+      <td><%= student.mondaystart.strftime("%H:%M") %></td>
+      <td><%= student.mondayend.strftime("%H:%M") %></td>
+      <td><%= student.tuesdaystart.strftime("%H:%M") %></td>
+      <td><%= student.tuesdayend.strftime("%H:%M") %></td>
+      <td><%= student.wednesdaystart.strftime("%H:%M") %></td>
+      <td><%= student.wednesdayend.strftime("%H:%M") %></td>
+      <td><%= student.thursdaystart.strftime("%H:%M") %></td>
+      <td><%= student.thursdayend.strftime("%H:%M") %></td>
+      <td><%= student.fridaystart.strftime("%H:%M") %></td>
+      <td><%= student.fridayend.strftime("%H:%M") %></td>
       <td><%= student.email %></td>
       <td>
         <% student.grades.each do |grade| %>

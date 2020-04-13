@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
 
   get 'studenthome', to: 'studenthome#show'
+  get 'course_refresh', to: 'courses#refresh'
+  get 'scrape', to: 'scraper#scrape'
+  get 'student_courses', to: 'courses#indexstudentview'
 
+  resources :scraper
+  resources :courses
   resources :students
   resources :admin
 end

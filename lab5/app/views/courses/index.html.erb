@@ -1,0 +1,42 @@
+<p>
+  <%= link_to '<button type="button">Reset Database</button>'.html_safe, course_refresh_path,
+              data: {confirm: 'Are you sure? This will reset the database.'}%>
+</p>
+<p>
+  <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
+</p>
+<table>
+  <tr>
+    <th><%= link_to "Class", :sort => "class_id" %></th>
+    <th><%= link_to "Section", :sort => "section" %></th>
+    <th><%= link_to "Component", :sort => "component" %></th>
+    <th><%= link_to "Days", :sort => "days" %></th>
+    <th><%= link_to "Start", :sort => "start" %></th>
+    <th><%= link_to "End", :sort => "end" %></th>
+    <th><%= link_to "Location", :sort => "location" %></th>
+    <th><%= link_to "Professor", :sort => "professor" %></th>
+  </tr>
+  <% @courses.each do |course| %>
+
+    <tr>
+
+
+      <td><%= course.class_id %></td>
+      <td><%= course.section %></td>
+      <td><%= course.component %></td>
+      <td><%= course.days %></td>
+      <td><%= course.start.strftime("%H:%M")%></td>
+      <td><%= course.end.strftime("%H:%M")%></td>
+      <td><%= course.location %></td>
+      <td><%= course.professor %></td>
+      <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(course)%></td>
+      <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'}%></td>
+
+    </tr>
+  <%end%>
+</table>
+<p>
+  <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
+</p>
