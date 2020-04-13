@@ -1,0 +1,52 @@
+#item {
+  background-color:  #333;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+#item:hover {
+  background-color: #bb0000;
+}
+.menu {
+  display: inline-block;
+}
+#submenu {
+  display: none; /* important for toggle */
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+}
+#submenu a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+#submenu a:hover {
+  background-color: #bb0000
+}
+
+#list li {
+  list-style: none;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.task div{
+  display: inline-block;
+}
+
+.remove {
+  font-size: 24px;
+  margin-left: 50px;
+  border: none;
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+.yellow {
+  background-color: yellow;
+}
