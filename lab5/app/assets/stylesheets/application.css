@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.basic {
+    margin:  10px 10px 10px 20px;
+    text-align: center;
+}
+.display table {
+    border: white;
+    margin: auto;
+    text-align: left;
+}
+
+.display th, td, tr {
+    border: white;
+}
+
+
+
+.table table {
+    padding-top: 12px;
+    padding-left: 12px;
+    margin: auto;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #B05C61;
+}
+
+
+
+.error {
+    position: center;
+    border: 2px solid #333;
+    border-radius: 1em;
+    padding: 2px;
+    background: #f30;
+
+
+}

@@ -1,7 +1,7 @@
 <%-# checks for errors in the data entered on the form. -%>
 <%if @student.errors.any? %>
-  <div id="error_explanation">
-    <h2 class="error">
+  <div class="error">
+    <h2>
       <%-# tells the user that the data wasn't saved due to error or errors, also prints the number of errors. -%>
       <%= pluralize(@student.errors.count, "error")
       %> Prohibited the data from being saved:
@@ -29,45 +29,47 @@
     <%= f.label 'Dot Number:' %>
     <%= f.text_field :dotnumber %>
   </p>
-  <table>
-  <tr>
-    <td><%= f.label 'Monday Free Time:' %></td>
-    <td><%= f.time_select :mondaystart %></td>
-    <td><%= f.label 'to' %></td>
-    <td><%= f.time_select :mondayend %></td>
-  </tr>
-  <tr>
-    <td><%= f.label 'Tuesday Free Time:' %></td>
-    <td><%= f.time_select :tuesdaystart %></td>
-    <td><%= f.label 'to' %></td>
-    <td><%= f.time_select :tuesdayend %></td>
-  </tr>
-  <tr>
-    <td><%= f.label 'Wednesday Free Time:' %></td>
-    <td><%= f.time_select :wednesdaystart %></td>
-    <td><%= f.label 'to' %></td>
-    <td><%= f.time_select :wednesdayend %></td>
-  </tr>
-  <tr>
-    <td><%= f.label 'Thursday Free Time:' %></td>
-    <td><%= f.time_select :thursdaystart %></td>
-    <td><%= f.label 'to' %></td>
-    <td><%= f.time_select :thursdayend %></td>
-  </tr>
-  <tr>
-    <td><%= f.label 'Friday Free Time:' %></td>
-    <td><%= f.time_select :fridaystart %></td>
-    <td><%= f.label 'to' %></td>
-    <td><%= f.time_select :fridayend %></td>
-  </tr>
-  </table>
+  <div class="display">
+    <table>
+      <tr>
+        <td><%= f.label 'Monday Free Time:' %></td>
+        <td><%= f.time_select :mondaystart %></td>
+        <td><%= f.label 'to' %></td>
+        <td><%= f.time_select :mondayend %></td>
+      </tr>
+      <tr>
+        <td><%= f.label 'Tuesday Free Time:' %></td>
+        <td><%= f.time_select :tuesdaystart %></td>
+        <td><%= f.label 'to' %></td>
+        <td><%= f.time_select :tuesdayend %></td>
+      </tr>
+      <tr>
+        <td><%= f.label 'Wednesday Free Time:' %></td>
+        <td><%= f.time_select :wednesdaystart %></td>
+        <td><%= f.label 'to' %></td>
+        <td><%= f.time_select :wednesdayend %></td>
+      </tr>
+      <tr>
+        <td><%= f.label 'Thursday Free Time:' %></td>
+        <td><%= f.time_select :thursdaystart %></td>
+        <td><%= f.label 'to' %></td>
+        <td><%= f.time_select :thursdayend %></td>
+      </tr>
+      <tr>
+        <td><%= f.label 'Friday Free Time:' %></td>
+        <td><%= f.time_select :fridaystart %></td>
+        <td><%= f.label 'to' %></td>
+        <td><%= f.time_select :fridayend %></td>
+      </tr>
+    </table>
+  </div>
   <div class = 'grades'>
     <%= f.fields_for :grades do |builder|%>
       <%= render 'grade_fields', f: builder %>
     <% end%>
   </div>
-  <p>
-    <%= link_to_add_association 'Add Class/Grade',  f, :grades, class: 'btn btn-primary', data: {
+  <p class="btn">
+    <%= link_to_add_association 'Add Class/Grade',  f, :grades,  data: {
         association_insertion_node: '.grades', association_insertion_method: :append}%>
   </p>
   <p>Unsure what grades you should put? click <%= link_to 'here', courses_path, :target => '_blank' %> for a list of classes that need TAs</p>

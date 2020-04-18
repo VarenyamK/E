@@ -1,3 +1,4 @@
+<div class="basic">
 <% if current_user.admin? %>
   <p>
     <%= link_to '<button type="button">Reset Database</button>'.html_safe, course_refresh_path,
@@ -7,6 +8,7 @@
     <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
   </p>
 <%end%>
+  <div class="table">
 <table>
   <tr>
     <th><%= link_to "Class", :sort => "class_id" %></th>
@@ -40,3 +42,5 @@
     </tr>
   <%end%>
 </table>
+  </div>
+</div>
