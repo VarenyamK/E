@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
                      component: variables[1].text,
                      period: variables[3].text,
                      location: variables[2].text,
-                     professor: variables[4].text
+                     professor: variables[4].text,
         }
         # put in array
         classes << section
@@ -80,7 +80,10 @@ class CoursesController < ApplicationController
                     start: (start2 - 18000),
                     end: (finish2 - 18000),
                     location: c[:location],
-                    professor: c[:professor])
+                    professor: c[:professor],
+                    grader: c[:grader],
+                    gradersneeded: c[:gradersneeded],
+                    gradersfilled: c[:gradersfilled])
     end
     redirect_to courses_path
   end
@@ -140,6 +143,6 @@ class CoursesController < ApplicationController
 
   private def course_params
     params.require(:course).permit(:class_id, :section, :component, :days,
-                                   :start, :end, :location, :professor)
+                                   :start, :end, :location, :professor, :grader, :gradersneeded, :gradersfilled)
   end
 end

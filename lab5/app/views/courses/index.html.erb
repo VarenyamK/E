@@ -19,6 +19,9 @@
     <th><%= link_to "End", :sort => "end" %></th>
     <th><%= link_to "Location", :sort => "location" %></th>
     <th><%= link_to "Professor", :sort => "professor" %></th>
+    <th><%= link_to "Grader", :sort => "grader" %></th>
+    <th><%= link_to "Graders Needed", :sort => "gradersneeded" %></th>
+    <th><%= link_to "Graders Filled", :sort => "gradersfilled" %></th>
   </tr>
   <% @courses.each do |course| %>
 
@@ -33,6 +36,9 @@
       <td><%= course.end.strftime("%H:%M")%></td>
       <td><%= course.location %></td>
       <td><%= course.professor %></td>
+      <td><%= course.grader %></td>
+      <td><%= course.gradersneeded %></td>
+      <td><%= course.gradersfilled %></td>
       <% if current_user.admin? %>
         <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(course)%></td>
         <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
