@@ -89,11 +89,8 @@ class CoursesController < ApplicationController
     @courses = Course.order(params[:sort])
   end
 
-  def indexstudentview
-    @courses = Course.order(params[:sort])
-  end
-
   def new
+    authorized?
     @course = Course.new
   end
 
@@ -102,6 +99,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    authorized?
     @course = Course.new(course_params)
     # checks validity of the course by using validations, only then allows user to save
     if @course.save
@@ -112,10 +110,12 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    authorized?
     @course = Course.find(params[:id])
   end
 
   def update
+    authorized?
     @course = Course.find(params[:id])
 
     if @course.update(course_params)
@@ -126,9 +126,16 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    authorized?
     @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path
+  end
+
+  private def authorized?
+    unless current_user.admin?
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private def course_params

@@ -1,5 +1,5 @@
 class StudenthomeController < ApplicationController
-  def show
+  def index
     @user = current_user
   end
 end

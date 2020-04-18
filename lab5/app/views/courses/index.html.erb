@@ -1,10 +1,12 @@
-<p>
-  <%= link_to '<button type="button">Reset Database</button>'.html_safe, course_refresh_path,
-              data: {confirm: 'Are you sure? This will reset the database.'}%>
-</p>
-<p>
-  <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
-</p>
+<% if current_user.admin? %>
+  <p>
+    <%= link_to '<button type="button">Reset Database</button>'.html_safe, course_refresh_path,
+                data: {confirm: 'Are you sure? This will reset the database.'}%>
+  </p>
+  <p>
+    <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
+  </p>
+<%end%>
 <table>
   <tr>
     <th><%= link_to "Class", :sort => "class_id" %></th>
@@ -29,14 +31,12 @@
       <td><%= course.end.strftime("%H:%M")%></td>
       <td><%= course.location %></td>
       <td><%= course.professor %></td>
-      <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(course)%></td>
-      <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'}%></td>
-
+      <% if current_user.admin? %>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(course)%></td>
+        <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'}%></td>
+      <%end%>
     </tr>
   <%end%>
 </table>
-<p>
-  <%= link_to '<button type="button">Add Course</button>'.html_safe, new_course_path %>
-</p>

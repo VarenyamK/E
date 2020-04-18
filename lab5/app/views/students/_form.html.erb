@@ -70,7 +70,7 @@
     <%= link_to_add_association 'Add Class/Grade',  f, :grades, class: 'btn btn-primary', data: {
         association_insertion_node: '.grades', association_insertion_method: :append}%>
   </p>
-  <p>Unsure what grades you should put? click <%= link_to 'here', student_courses_path, :target => '_blank' %> for a list of classes that need TAs</p>
+  <p>Unsure what grades you should put? click <%= link_to 'here', courses_path, :target => '_blank' %> for a list of classes that need TAs</p>
 
   <div class= "form-actions">
     <p>

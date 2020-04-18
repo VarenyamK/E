@@ -1,7 +1,6 @@
 class AdminController < ApplicationController
     before_action :authorized?
-    private
-    def authorized?
+    private def authorized?
       unless current_user.admin?
         redirect_back(fallback_location: root_path)
 
@@ -9,7 +8,7 @@ class AdminController < ApplicationController
     end
 
     def index
-
     end
+
   end
 
