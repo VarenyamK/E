@@ -40,12 +40,12 @@ class StudentsController < ApplicationController
 
 
   private def student_params
-    params.require(:student).permit(:firstname, :lastname, :dotnumber,
+    params.require(:student).permit(:firstname, :lastname, :dotnumber, :preferences,
                                     :mondaystart, :mondayend, :tuesdaystart, :tuesdayend,
                                     :wednesdaystart, :wednesdayend,
                                     :thursdaystart, :thursdayend, :fridaystart,
                                     :fridayend,
-                                    grades_attributes: Grade.attribute_names.map(&:to_sym).push(:_destroy))
+                                    grades_attributes: Grade.attribute_names.map(&:to_sym).push(:_destroy),)
   end
 
 
