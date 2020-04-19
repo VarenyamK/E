@@ -1,6 +1,7 @@
 <ul id="navbar">
   <li><%= link_to "Home", root_path%></li>
   <li><%= link_to "Student", studenthome_path%></li>
+  <li><%= link_to "Teacher", teacherhome_path%></li>
   <% if current_user.admin? %>
     <li><%= link_to "Admin Panel", admin_path%></li>
   <% end %>
