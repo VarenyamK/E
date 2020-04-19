@@ -14,10 +14,6 @@
   <strong>Dotnumber: </strong>
   <%= @student.dotnumber%>
 </p>
-<p>
-  <strong>Preferences: </strong>
-  <%= @student.preferences %>
-</p>
 
 <h2>
   Available Times:
@@ -61,6 +57,7 @@
   <tr>
     <th>Class</th>
     <th>Grade</th>
+    <th>Preference</th>
   </tr>
 
 
@@ -68,6 +65,9 @@
    <tr>
      <td><%=grade.section %></td>
      <td><%=grade.grade %></td>
+     <td><% if grade.preference %>
+          Preferred
+         <%end %></td>
    </tr>
   <% end %>
 </table>
