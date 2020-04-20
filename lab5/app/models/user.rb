@@ -6,4 +6,8 @@ class User < ApplicationRecord
   def admin?
     admin
   end
+
+  def teacher?
+    teacher
+  end
 end
