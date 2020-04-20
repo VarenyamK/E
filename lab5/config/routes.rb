@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'studenthome', to: 'studenthome#index'
   get 'teacherhome', to: 'teacherhome#index'
+  get 'recommendation', to: 'recommendation#index'
   get 'course_refresh', to: 'courses#refresh'
   get 'scrape', to: 'scraper#scrape'
 
