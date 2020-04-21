@@ -1,5 +1,23 @@
 <div class="basic">
   <h1>Edit Course</h1>
+  <%-# checks for errors in the data entered on the form. -%>
+  <%if @course.errors.any? %>
+    <div class="error">
+      <h2>
+        <%-# tells the user that the data wasn't saved due to error or errors, also prints the number of errors. -%>
+        <%= pluralize(@course.errors.count, "error")
+        %> Prohibited the data from being saved:
+      </h2>
+      <%-# Prints error message -%>
+      <ul>
+        <% @course.errors.full_messages.each do
+        |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for :course, url: course_path(@course), method: :patch do |f| %>
 
     <p>
@@ -59,22 +77,6 @@
       <%= f.submit %>
     </p>
 
-    <%-# checks for errors in the data entered on the form. -%>
-    <%if @course.errors.any? %>
-      <div id="error_explanation">
-        <h2 class="error">
-          <%-# tells the user that the data wasn't saved due to error or errors, also prints the number of errors. -%>
-          <%= pluralize(@course.errors.count, "error")
-          %> Prohibited the data from being saved:
-        </h2>
-        <%-# Prints error message -%>
-        <ul>
-          <% @course.errors.full_messages.each do
-          |msg|%>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+
   <%end %>
 </div>

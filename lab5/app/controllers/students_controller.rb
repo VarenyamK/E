@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
 
   def index
     authorized?
-    @students = Student.all
+    @students = Student.order(params[:sort])
   end
 
   def create

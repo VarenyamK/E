@@ -1,36 +1,24 @@
 <div class="basic">
-<table>
-  <tr>
-    <th>Class</th>
-    <th>Section</th>
-    <th>Component</th>
-    <th>Days</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Location</th>
-    <th>Professor</th>
-    <th>Grader</th>
-    <th>Graders Needed</th>
-    <th>Graders Filled</th>
-  </tr>
-  <tr>
-    <td><%= @course.class_id %></td>
-    <td><%= @course.section %></td>
-    <td><%= @course.component %></td>
-    <td><%= @course.days %></td>
-    <td><%= @course.start.strftime("%H:%M")%></td>
-    <td><%= @course.end.strftime("%H:%M")%></td>
-    <td><%= @course.location %></td>
-    <td><%= @course.professor %></td>
-    <td><%= @course.grader %></td>
-    <td><%= @course.gradersneeded %></td>
-    <td><%= @course.gradersfilled %></td>
-    <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(@course)%></td>
-    <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(@course),
+  <h2>Course Information</h2>
+    <p><strong>Class: </strong><%= @course.class_id %></p>
+    <p><strong>Section: </strong><%= @course.section %></p>
+    <p><strong>Component: </strong><%= @course.component %></p>
+    <p><strong>Days: </strong><%= @course.days %></p>
+    <p><strong>Start: </strong><%= @course.start.strftime("%H:%M")%></p>
+    <p><strong>End: </strong><%= @course.end.strftime("%H:%M")%></p>
+    <p><strong>Location: </strong><%= @course.location %></p>
+    <p><strong>Professor: </strong><%= @course.professor %></p>
+    <p><strong>Grader: </strong><%= @course.grader %></p>
+    <p><strong>Graders Needed: </strong><%= @course.gradersneeded %></p>
+  <p><strong>Graders Filled: </strong><%= @course.gradersfilled %></p>
+
+
+
+    <p><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(@course)%></p>
+    <p><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(@course),
                     method: :delete,
-                    data: {confirm: 'Are you sure?'}%></td>
-  </tr>
-</table>
+                    data: {confirm: 'Are you sure?'}%></p>
+
 <p>
   <%= link_to '<button type="button">All Courses</button>'.html_safe, courses_path %>
 </p>

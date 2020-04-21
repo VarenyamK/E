@@ -2,8 +2,6 @@ class RecommendationController < ApplicationController
 
   def show
     @recommendation = Recommendation.find(params[:id])
-
-
   end
 
   def index

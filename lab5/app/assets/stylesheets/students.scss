@@ -1,6 +1,26 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+a:link {
+  color: #730E15;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #730E15;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666666;;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #2E2F30;
+  text-decoration: underline;
+}
+
 .nested-fields a{
   background-color: red;
   box-shadow: 0 5px 0 darkred;
