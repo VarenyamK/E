@@ -11,6 +11,7 @@ class CreateRecommendations < ActiveRecord::Migration[5.2]
       t.time :start
       t.time :end
 
+
       t.timestamps
     end
   end

@@ -1,10 +1,23 @@
-<%= form_tag do %>
+
   Form contents
-  <p>
+  <%=form_for (@recommendation, url = 'index') do |f|%>
+    <p>
+      <%= f.label 'First Name:' %>
+      <%= f.text_field :firstname  %>
+    </p>
+    <p>
+      <%= f.label 'Last Name:' %>
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <%= f.label 'Dot Number:' %>
+      <%= f.text_field :dotnumber %>
+    </p>
+    <div class= "form-actions">
+      <p>
+        <%= f.submit %>
+      </p>
+    </div>
+  <%end%>
 
 
-    <%= text_field "person", "name", "size" => 20 %>
-  </p>
-
-
-<% end %>
