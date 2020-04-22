@@ -1,6 +1,6 @@
 
   Form contents
-  <%= form_for :course, url: recommendations_path(@recommendation) do |f| %>
+  <%= form_for @recommendation do |f| %>
     <p>
       <%= f.label 'First Name:' %>
       <%= f.text_field :firstname  %>

@@ -5,7 +5,7 @@ class RecommendationsController < ApplicationController
   end
 
   def index
-    @recommendations = Recommendation.all
+    @recommendation = Recommendation.all
   end
 
   def new
@@ -29,7 +29,7 @@ class RecommendationsController < ApplicationController
 
 
   private def recommendation_params
-    params.permit(:firstname, :lastname, :dotnumber)
+    params.require(:recommendation).permit(:firstname, :lastname, :dotnumber)
   end
 
 end

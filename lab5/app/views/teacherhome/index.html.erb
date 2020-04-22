@@ -1,6 +1,14 @@
 <div class="basic">
   <h1>Teachers</h1>
 
-  <p><%= link_to "New Recommendations", new_recommendation_path%></p>
+  <%if Recommendation.exists?(:email => @user.email) %>
+    <%recommendation = Recommendation.find_by_email(@user.email) %>
+    <p><%= link_to "View/edit your recommendation", recommendation_path(recommendation) %></p>
+  <%end %>
+    <p><%= link_to "New Recommendations", new_recommendation_path%></p>
+
+
+
+
 
 </div>
