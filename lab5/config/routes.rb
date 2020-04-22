@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :students
   resources :admin
   resources :users
-  resources :recommendation
+  resources :recommendations
 end
