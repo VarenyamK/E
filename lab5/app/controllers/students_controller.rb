@@ -1,20 +1,32 @@
 class StudentsController < ApplicationController
+  private def authorized?
+    unless current_user.admin? || !current_user.teacher?
+      redirect_back(fallback_location: root_path)
+    end
+  end
+  private def isAdmin?
+    unless current_user.admin?
+      redirect_back(fallback_location: root_path)
+    end
+  end
   def show
-    @student = Student.find(params[:id])
     authorized?
+    @student = Student.find(params[:id])
     #@student = Student.find(params[:id])
   end
 
   def new
+    authorized?
     @student = Student.new
   end
 
   def index
-    authorized?
+    isAdmin?
     @students = Student.order(params[:sort])
   end
 
   def create
+    authorized?
     @student = Student.new(student_params)
     @student.email = current_user.email
     if @student.save
@@ -25,11 +37,12 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Student.find(params[:id])
     authorized?
+    @student = Student.find(params[:id])
   end
 
   def update
+    authorized?
     @student = Student.find(params[:id])
     if @student.update(student_params)
       redirect_to @student
@@ -46,13 +59,6 @@ class StudentsController < ApplicationController
                                     :thursdaystart, :thursdayend, :fridaystart,
                                     :fridayend,
                                     grades_attributes: Grade.attribute_names.map(&:to_sym).push(:_destroy),)
-  end
-
-
-  private def authorized?
-    unless current_user.admin? || @student.email == current_user.email
-      redirect_back(fallback_location: root_path)
-    end
   end
 
 end
