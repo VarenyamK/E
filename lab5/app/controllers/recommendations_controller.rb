@@ -29,7 +29,7 @@ class RecommendationsController < ApplicationController
 
 
   private def recommendation_params
-    params.require(:recommendation).permit(:firstname, :lastname, :dotnumber)
+    params.require(:recommendation).permit(:firstname, :lastname, :dotnumber, :class_id)
   end
 
 end

@@ -2,16 +2,20 @@
   Form contents
   <%= form_for @recommendation do |f| %>
     <p>
-      <%= f.label 'First Name:' %>
+      <%= f.label 'Grader First Name:' %>
       <%= f.text_field :firstname  %>
     </p>
     <p>
-      <%= f.label 'Last Name:' %>
+      <%= f.label 'Grader Last Name:' %>
       <%= f.text_field :lastname %>
     </p>
     <p>
-      <%= f.label 'Dot Number:' %>
+      <%= f.label 'Grader Dot Number:' %>
       <%= f.text_field :dotnumber %>
+    </p>
+    <p>
+      <%= f.label 'Class Name (ex. CSE 2221)' %>
+      <%= f.text_field :class_id %>
     </p>
     <div class= "form-actions">
       <p>

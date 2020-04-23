@@ -8,6 +8,8 @@ class Recommendation < ApplicationRecord
   validates :lastname, length: { minimum: 1 }
   validates :dotnumber, numericality: { greater_than_or_equal_to: 1 }
 
+  validates :class_id, format: { with: /\A[A-Z]{3} \d{4}\z/,
+                                 message: " format must be 3 Capital letters a space and 4 digits"}
   #validates :section, format: { with: /\A[A-Z]{3} \d{4}\z/,
   # message: " format must be 3 Capital letters a space and 4 digits"}
 end
