@@ -37,6 +37,7 @@
           <td><%= student.fridayend.strftime("%H:%M") %></td>
           <td><%= student.email %></td>
           <td>
+            <%-# display the nested fields-%>
             <% student.grades.each do |grade| %>
 
               <p><%=grade.section %>

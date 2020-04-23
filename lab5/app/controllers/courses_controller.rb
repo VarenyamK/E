@@ -55,11 +55,15 @@ class CoursesController < ApplicationController
 
 
     end
-
+    
+    #add to the course the scraped classes
     classes.each do |c|
       temp = c[:period].to_s
+      #ARR means it doesnt have a time so change the time to 00:00
       if temp != 'ARR'
+        #split start and end time
         timesplit = temp.split(' ')
+        #put in seperate fields
         days = timesplit[0]
         start = timesplit[1]
         finish = timesplit[3]
@@ -68,12 +72,13 @@ class CoursesController < ApplicationController
         start = '00:00'
         finish = '00:00'
       end
+      #parse those into time object
       start2 = Time.parse(start)
       finish2 = Time.parse(finish)
 
 
 
-
+      #add info to Course
       Course.create(class_id: c[:class_id],
                     section: c[:section],
                     component: c[:component],
@@ -86,6 +91,7 @@ class CoursesController < ApplicationController
                     gradersneeded: 1,
                     gradersfilled: 0)
     end
+    #refresh to index
     redirect_to courses_path
   end
 
