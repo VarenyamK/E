@@ -16,7 +16,8 @@ h1 {
   width: 100%;
   overflow: hidden;
   background-clip: content-box;
-  background-color: #333;
+  //background-color: #333;
+  background-color: #bb0000;
 }
 
 #navbar li {
@@ -36,5 +37,6 @@ h1 {
 }
 
 #navbar a:hover {
-  background-color: #bb0000;
+  //background-color: #bb0000;
+  background-color: #333;
 }
