@@ -33,7 +33,7 @@ Execute the following commands to get the app running
 (admins will be able to change the privilages of other users and view all submissions)
 
 * The first thing that is recommended is seeding the database for available courses
-(this is done by hitting the refresh button on course view in admin page)
+(this is done by hitting the "reset database" button on course view in admin page)
 
 * Once all this is done the app is ready for teachers and students to make submissions and 
 admins to monitor these forms along with assign graders
