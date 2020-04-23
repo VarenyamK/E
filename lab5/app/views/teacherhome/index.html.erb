@@ -5,7 +5,17 @@
     <%recommendation = Recommendation.find_by_email(@user.email) %>
     <p><%= link_to "View your recommendation", recommendation_path(recommendation) %></p>
   <%else%>
-    <p><%= link_to "New Recommendations", new_recommendation_path%></p>
+    <p><%= link_to "New recommendations", new_recommendation_path%></p>
+
+
+  <%end %>
+
+
+  <%if Request.exists?(:email => @user.email) %>
+    <%request = Request.find_by_email(@user.email) %>
+    <p><%= link_to "View your request", request_path(request) %></p>
+  <%else%>
+    <p><%= link_to "New request", new_request_path%></p>
 
 
   <%end %>

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :admin
   resources :users
   resources :recommendations
+  resources :requests
 end
