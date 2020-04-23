@@ -1,8 +1,13 @@
 <div class="basic">
 <h1>Home</h1>
 
-<p>welcome to the TA selection page</p>
-<p>If you are a Student go to the Student page</p>
-<p>If you are a Teacher go to the Teacher page</p>
+<p>Welcome to the Spring 2020 TA selection page</p>
+<% if @user.teacher? %>
+  <p>Go to the Teacher page to submit recmommendations, requests and evaluations</p>
+<% end %>
+<% if !@user.teacher? %>
+  <p>Go to the Student page to submit/edit your application</p>
+<% end %>
+<%= link_to "Current Courses", 'courses#index' %>
 
 </div>

@@ -1,18 +1,33 @@
 class RecommendationsController < ApplicationController
+  private def authorized?
+    unless current_user.teacher? || current_user.admin?
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  private def isAdmin?
+    unless current_user.admin?
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   def show
+    authorized?
     @recommendation = Recommendation.find(params[:id])
   end
 
   def index
+    isAdmin?
     @recommendations = Recommendation.order(params[:sort])
   end
 
   def new
+    authorized?
     @recommendation = Recommendation.new
   end
 
   def create
+    authorized?
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.email = current_user.email
     if @recommendation.save
@@ -23,11 +38,13 @@ class RecommendationsController < ApplicationController
   end
 
   def edit
+    isAdmin?
     @recommendation = Recommendation.find(params[:id])
 
   end
 
   def update
+    isAdmin?
     @recommendation = Recommendation.find(params[:id])
     if @recommendation.update(recommendation_params)
       redirect_to @recommendation
