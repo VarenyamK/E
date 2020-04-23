@@ -1,10 +1,13 @@
 <div class="basic">
-  <h1>Your recs</h1>
+  <h1>All Recommendations</h1>
+  <div class="table">
   <table>
     <tr>
       <th><%= link_to "First Name", :sort => "firstname" %></th>
       <th><%= link_to "Last Name", :sort => "lastname" %></th>
+      <th><%= link_to "Dotnumber", :sort => "dotnumber" %></th>
       <th><%= link_to "Class ID", :sort => "class_id" %></th>
+      <th><%= link_to "Recommended By", :sort => "email" %></th>
     </tr>
 
     <% @recommendations.each do |rec| %>
@@ -14,7 +17,9 @@
 
         <td><%= rec.firstname %></td>
         <td><%= rec.lastname %></td>
+        <td><%= rec.dotnumber %></td>
         <td><%= rec.class_id %></td>
+        <td><%= rec.email %></td>
           <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_recommendation_path(rec)%></td>
           <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(rec),
                           method: :delete,
@@ -23,6 +28,7 @@
       </tr>
     <%end%>
   </table>
+  </div>
   <%= link_to 'Back', teacherhome_path %>
 
 </div>

@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.where(email: current_user.email)
+    @requests = Request.order(params[:sort])
   end
 
   def new

@@ -5,7 +5,7 @@ class RecommendationsController < ApplicationController
   end
 
   def index
-    @recommendations = Recommendation.where(email: current_user.email)
+    @recommendations = Recommendation.order(params[:sort])
   end
 
   def new
@@ -25,6 +25,15 @@ class RecommendationsController < ApplicationController
   def edit
     @recommendation = Recommendation.find(params[:id])
 
+  end
+
+  def update
+    @recommendation = Recommendation.find(params[:id])
+    if @recommendation.update(recommendation_params)
+      redirect_to @recommendation
+    else
+      render 'edit'
+    end
   end
 
 
