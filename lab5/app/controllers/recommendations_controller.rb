@@ -5,7 +5,7 @@ class RecommendationsController < ApplicationController
   end
 
   def index
-    @recommendation = Recommendation.all
+    @recommendations = Recommendation.where(email: current_user.email)
   end
 
   def new

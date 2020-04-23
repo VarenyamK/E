@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @request = Request.all
+    @requests = Recommendation.where(email: current_user.email)
   end
 
   def new

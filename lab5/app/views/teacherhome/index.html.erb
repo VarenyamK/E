@@ -3,7 +3,8 @@
 
   <%if Recommendation.exists?(:email => @user.email) %>
     <%recommendation = Recommendation.find_by_email(@user.email) %>
-    <p><%= link_to "View your recommendation", recommendation_path(recommendation) %></p>
+    <p><%= link_to "View your recommendations", 'recommendations#index' %></p>
+    <p><%= link_to "New recommendations", new_recommendation_path%></p>
   <%else%>
     <p><%= link_to "New recommendations", new_recommendation_path%></p>
 
@@ -13,7 +14,8 @@
 
   <%if Request.exists?(:email => @user.email) %>
     <%request = Request.find_by_email(@user.email) %>
-    <p><%= link_to "View your request", request_path(request) %></p>
+    <p><%= link_to "View your requests", 'requests#index' %></p>
+    <p><%= link_to "New request", new_request_path %></p>
   <%else%>
     <p><%= link_to "New request", new_request_path%></p>
 
