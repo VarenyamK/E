@@ -80,4 +80,21 @@
 
   <%end %>
 
+  <p>
+    Graders that meet the requirments:
+  </p>
+  <ul>
+    <% arr = rec(@course) %>
+    <% i = (arr.length - 1)%>
+    <% while i >= 0%>
+
+      <li>
+        <% student = Student.find_by_email(arr[i][0]) %>
+        <%= link_to student.lastname + '.' + student.dotnumber.to_s, student_path(student), :target => '_blank'%>
+
+      </li>
+      <% i -= 1%>
+    <%end %>
+  </ul>
+
 </div>

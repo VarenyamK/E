@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'teacherhome', to: 'teacherhome#index'
 
   get 'course_refresh', to: 'courses#refresh'
+  get 'course_refresh', to: 'courses#'
   get 'scrape', to: 'scraper#scrape'
 
   resources :scraper

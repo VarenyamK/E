@@ -46,8 +46,7 @@ module CoursesHelper
 
       reqs = Request.where(lastname: student.lastname, dotnumber: student.dotnumber, section: course.section )
       if(reqs.length > 0)
-          pts += 10
-
+          pts += 100
       end
 
       if (g == true) && (timecheck == true)

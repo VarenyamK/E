@@ -1,45 +1,12 @@
 # frozen_string_literal: true
 class Course < ApplicationRecord
+  serialize :student_recs, Array
   validates :class_id, format: { with: /\A[A-Z]{3} \d{4}\z/,
                                  message: ' format must be 3 Capital letters a space and 4 digits' }
   validates :component, inclusion: { in: %w[LEC LAB IND], message: ' must be LEC, LAB or IND.' }
   validates :section, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
   validates :gradersneeded, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
   validates :gradersfilled, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
-
-  before_create :assign_teachers_assistant
-
-  def check_if_free_all_days(days, s, studentsAvailM, studentsAvailT, studentsAvailW, studentsAvailR, studentsAvailF)
-    studentEligibleForCourse = true
-    #we need to make sure the student is free on all days the course is on
-    if (days.include? 'M') && !studentsAvailM.include?(s)
-      studentEligibleForCourse = false
-    end
-
-    if (days.include? 'T') && !studentsAvailT.include?(s)
-      studentEligibleForCourse = false
-    end
-
-    if (days.include? 'W') && !studentsAvailW.include?(s)
-      studentEligibleForCourse = false
-    end
-
-    if (days.include? 'R') && !studentsAvailR.include?(s)
-      studentEligibleForCourse = false
-    end
-
-    if (days.include? 'F') && !studentsAvailF.include?(s)
-      studentEligibleForCourse = false
-    end
-    studentEligibleForCourse
-  end
-
-  def assign_grader(currentCourse, student)
-    currentCourse.grader = student.email #grader is now assigned to a class
-    currentCourse.save
-    currentCourse.gradersneeded -= 1 #decrease amount of graders needed for course
-    currentCourse.save
-  end
 
   def assign_teachers_assistant
     courses = Course.where("gradersneeded > 0")
@@ -57,14 +24,14 @@ class Course < ApplicationRecord
       students.each do |s|
         if days.include? 'M'
           # if course is on Monday, grab each student and see if they are available during class time
-            sStartTime = s.mondaystart
-            sEndTime = s.mondayend # grab student Monday start and end times
-            courseStartTime = c.start
-            courseEndTime = c.end # grab course start and end times
-            if (sStartTime < courseStartTime) && (sEndTime > courseEndTime) # if student is available
-              # add student to an array of students available to TA this course on Mondays
-              studentsAvailM << s
-            end
+          sStartTime = s.mondaystart
+          sEndTime = s.mondayend # grab student Monday start and end times
+          courseStartTime = c.start
+          courseEndTime = c.end # grab course start and end times
+          if (sStartTime < courseStartTime) && (sEndTime > courseEndTime) # if student is available
+            # add student to an array of students available to TA this course on Mondays
+            studentsAvailM << s
+          end
         end
 
         if days.include? 'T'
@@ -142,7 +109,7 @@ class Course < ApplicationRecord
           #if the student is not recommended, and does not prefer the course, assign them anyways
           #to fill the spot
           if (c.gradersneeded > 0)
-           assign_grader(c, s)
+            assign_grader(c, s)
           end
         end
       end
@@ -155,4 +122,35 @@ class Course < ApplicationRecord
       end
     end
   end
+
+  def check_if_free_all_days(days, s, studentsAvailM, studentsAvailT, studentsAvailW, studentsAvailR, studentsAvailF)
+    studentEligibleForCourse = true
+    #we need to make sure the student is free on all days the course is on
+    if (days.include? 'M') && !studentsAvailM.include?(s)
+      studentEligibleForCourse = false
+    end
+
+    if (days.include? 'T') && !studentsAvailT.include?(s)
+      studentEligibleForCourse = false
+    end
+
+    if (days.include? 'W') && !studentsAvailW.include?(s)
+      studentEligibleForCourse = false
+    end
+
+    if (days.include? 'R') && !studentsAvailR.include?(s)
+      studentEligibleForCourse = false
+    end
+
+    if (days.include? 'F') && !studentsAvailF.include?(s)
+      studentEligibleForCourse = false
+    end
+    studentEligibleForCourse
+  end
+
+   def assign_grader(currentCourse, student)
+    currentCourse.grader = student.email #grader is now assigned to a class
+    currentCourse.save
+  end
+
 end

@@ -47,6 +47,7 @@ class CoursesController < ApplicationController
                      period: variables[3].text,
                      location: variables[2].text,
                      professor: variables[4].text
+
         }
         # put in the array
         classes << section
@@ -82,8 +83,8 @@ class CoursesController < ApplicationController
                     location: c[:location],
                     professor: c[:professor],
                     grader: c[:grader],
-                    gradersneeded: c[:gradersneeded],
-                    gradersfilled: c[:gradersfilled])
+                    gradersneeded: 1,
+                    gradersfilled: 0)
     end
     redirect_to courses_path
   end
