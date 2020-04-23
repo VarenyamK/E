@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :users
   resources :recommendations
   resources :requests
+  resources :evaluations
 end

@@ -3,9 +3,9 @@
   <div class="table">
   <table>
     <tr>
-      <th><%= link_to "First Name", :sort => "firstname" %></th>
-      <th><%= link_to "Last Name", :sort => "lastname" %></th>
-      <th><%= link_to "Dotnumber", :sort => "dotnumber" %></th>
+      <th><%= link_to "Graders First Name", :sort => "firstname" %></th>
+      <th><%= link_to "Graders Last Name", :sort => "lastname" %></th>
+      <th><%= link_to "Graders Dotnumber", :sort => "dotnumber" %></th>
       <th><%= link_to "Class ID", :sort => "class_id" %></th>
       <th><%= link_to "Recommended By", :sort => "email" %></th>
     </tr>
@@ -28,6 +28,7 @@
       </tr>
     <%end%>
   </table>
+    <%= link_to 'Back', admin_path %>
   </div>
 
 
