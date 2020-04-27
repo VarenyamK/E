@@ -37,8 +37,8 @@
       <td><%= course.location %></td>
       <td><%= course.professor %></td>
       <td><%= course.grader %></td>
-      <td><%= course.gradersneeded %></td>
-      <td><%= course.gradersfilled %></td>
+      <td style="text-align: center"><%= course.gradersneeded %></td>
+      <td style="text-align: center"><%= course.gradersfilled %></td>
       <% if current_user.admin? %>
         <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_course_path(course)%></td>
         <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(course),
