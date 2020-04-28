@@ -64,3 +64,5 @@ Administration:
 
 * When an admin goes to edit a course at the bottom will be a recommended list of students that meet TA requirements 
 for that certain class. The list is ranked in order from most qualified to least. 
+
+Presentation link: https://docs.google.com/presentation/d/1rzW_RNlk8W1v3QvbRYSdpbeSHpz9ml-3a30F8VuQEas/edit?usp=sharing

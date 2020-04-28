@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
 
-  get 'admin', to: 'admin#index'
+  get 'admin', to: 'admin#home'
 
   get 'studenthome', to: 'studenthome#index'
   get 'teacherhome', to: 'teacherhome#index'
