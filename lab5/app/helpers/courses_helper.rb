@@ -18,29 +18,33 @@ module CoursesHelper
           end
         end
       end
+      #if it is a LAB check availability
+      if course.component == 'LAB'
+        if (course.days.include? 'M') && (course.start > student.mondaystart) && (course.end < student.mondayend)
+          day += 1
+        end
 
-      if (course.days.include? 'M') && (course.start > student.mondaystart) && (course.end < student.mondayend)
-        day += 1
-      end
+        if (course.days.include? 'T') && (course.start > student.tuesdaystart) && (course.end < student.tuesdayend)
+          day += 1
+        end
 
-      if (course.days.include? 'T') && (course.start > student.tuesdaystart) && (course.end < student.tuesdayend)
-        day += 1
-      end
+        if (course.days.include? 'W') && (course.start > student.wednesdaystart) && (course.end < student.wednesdayend)
+          day += 1
 
-      if (course.days.include? 'W') && (course.start > student.wednesdaystart) && (course.end < student.wednesdayend)
-        day += 1
+        end
 
-      end
+        if (course.days.include? 'R') && (course.start > student.thursdaystart) && (course.end < student.thursdayend)
+          day += 1
+        end
 
-      if (course.days.include? 'R') && (course.start > student.thursdaystart) && (course.end < student.thursdayend)
-        day += 1
-      end
-
-      if (course.days.include? 'F') && (course.start > student.fridaystart) && (course.end < student.fridayend)
-        day += 1
-      end
-      #confirm that they can make every day the class is held
-      if course.days.length == day
+        if (course.days.include? 'F') && (course.start > student.fridaystart) && (course.end < student.fridayend)
+          day += 1
+        end
+        #confirm that they can make every day the class is held
+        if course.days.length == day
+          timecheck = true
+        end
+      else
         timecheck = true
       end
 

@@ -20,6 +20,10 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  def open_courses
+    @courses = Course.all
+  end
+
   def index
     isAdmin?
     @students = Student.order(params[:sort])
