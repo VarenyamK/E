@@ -96,7 +96,25 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.order(params[:sort])
+    #@courses = Course.order(params[:sort])
+    @courses = filter(params)
+  end
+
+  private def filter(params)
+    filter = Course.all
+    if params[:class_id].present?
+      filter = filter.where(class_id: params[:class_id])
+    end
+    if params[:professor].present?
+      filter = filter.where(professor: params[:professor])
+    end
+    if params[:days].present?
+      filter = filter.where(days: params[:days])
+    end
+    if params[:component].present?
+      filter = filter.where(component: params[:component])
+    end
+    return filter
   end
 
   def new
