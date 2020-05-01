@@ -99,7 +99,7 @@ class CoursesController < ApplicationController
     #@courses = Course.order(params[:sort])
     @courses = filter(params)
   end
-
+  #add various filters for course selection page
   private def filter(params)
     filter = Course.all
     if params[:class_id].present?
@@ -135,19 +135,19 @@ class CoursesController < ApplicationController
   def create
     authorized?
     @course = Course.new(course_params)
-    # checks validity of the course by using validations, only then allows user to save
+    #checks validity of the course by using validations, only then allows user to save
     if @course.save
       redirect_to @course
     else
       render 'new'
     end
   end
-
+  #only allow authorized people to edit courses
   def edit
     authorized?
     @course = Course.find(params[:id])
   end
-
+  #only allow authorized people to update courses
   def update
     authorized?
     @course = Course.find(params[:id])
@@ -165,7 +165,7 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to courses_path
   end
-
+  #checks the authorization of the user and whether they have admin privileges
   private def authorized?
     unless current_user.admin?
       redirect_back(fallback_location: root_path)
