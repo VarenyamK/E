@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #authorize user
-	before_action :authorized?
+  before_action :authorized?
   private def authorized?
     unless current_user.admin?
       # go to previous page before request, backup is home page

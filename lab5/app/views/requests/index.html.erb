@@ -1,7 +1,7 @@
 <div class="basic">
   <div class="table">
-  <%-#Display all requests and their fields with sorting functionality -%>
-  <h1>All Current Requests</h1>
+    <%- #Display all requests and their fields with sorting functionality  -%>
+    <h1>All Current Requests</h1>
     <table>
       <tr>
         <th><%= link_to "Graders First Name", :sort => "firstname" %></th>
@@ -13,7 +13,6 @@
       </tr>
 
       <% @requests.each do |rec| %>
-
         <tr>
           <td><%= rec.firstname %></td>
           <td><%= rec.lastname %></td>
@@ -21,13 +20,9 @@
           <td><%= rec.class_id %></td>
           <td><%= rec.section %></td>
           <td><%= rec.email %></td>
-
-
         </tr>
-      <%end%>
+      <% end %>
     </table>
     <%= link_to 'Back', admin_path %>
   </div>
-
-
 </div>

@@ -24,12 +24,12 @@ class CoursesController < ApplicationController
       subgroups0.each do |subgroup|
         variables = subgroup.css('td')
 
-        section = {  class_id: title,
-                     section: variables[0].text,
-                     component: variables[1].text,
-                     period: variables[3].text,
-                     location: variables[2].text,
-                     professor: variables[4].text,
+        section = {class_id: title,
+                   section: variables[0].text,
+                   component: variables[1].text,
+                   period: variables[3].text,
+                   location: variables[2].text,
+                   professor: variables[4].text,
         }
         # put in array
         classes << section
@@ -41,12 +41,12 @@ class CoursesController < ApplicationController
         # get necessary elements from the table in that subgroup
         variables = subgroup.css('td')
 
-        section = {  class_id: title,
-                     section: variables[0].text,
-                     component: variables[1].text,
-                     period: variables[3].text,
-                     location: variables[2].text,
-                     professor: variables[4].text
+        section = {class_id: title,
+                   section: variables[0].text,
+                   component: variables[1].text,
+                   period: variables[3].text,
+                   location: variables[2].text,
+                   professor: variables[4].text
 
         }
         # put in the array
@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
 
 
     end
-    
+
     #add to the course the scraped classes
     classes.each do |c|
       temp = c[:period].to_s
@@ -75,7 +75,6 @@ class CoursesController < ApplicationController
       #parse those into time object
       start2 = Time.parse(start)
       finish2 = Time.parse(finish)
-
 
 
       #add info to Course
@@ -99,6 +98,7 @@ class CoursesController < ApplicationController
     #@courses = Course.order(params[:sort])
     @courses = filter(params)
   end
+
   #add various filters for course selection page
   private def filter(params)
     filter = Course.all
@@ -115,7 +115,7 @@ class CoursesController < ApplicationController
       filter = filter.where(start: params[:start])
     end
     if params[:end].present?
-      filter= filter.where(end: params[:end])
+      filter = filter.where(end: params[:end])
     end
     if params[:component].present?
       filter = filter.where(component: params[:component])
@@ -142,11 +142,13 @@ class CoursesController < ApplicationController
       render 'new'
     end
   end
+
   #only allow authorized people to edit courses
   def edit
     authorized?
     @course = Course.find(params[:id])
   end
+
   #only allow authorized people to update courses
   def update
     authorized?
@@ -165,6 +167,7 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to courses_path
   end
+
   #checks the authorization of the user and whether they have admin privileges
   private def authorized?
     unless current_user.admin?

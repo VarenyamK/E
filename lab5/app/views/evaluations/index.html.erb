@@ -1,9 +1,9 @@
 <div class="basic">
   <div class="table">
-  <h1>All Current Evaluations</h1>
+    <h1>All Current Evaluations</h1>
     <table>
       <tr>
-        <%-#Display all fields of evauluation with sorthing functionality -%>
+        <%- #Display all fields of evauluation with sorthing functionality   -%>
         <th><%= link_to "Grader First Name", :sort => "firstname" %></th>
         <th><%= link_to "Graders Last Name", :sort => "lastname" %></th>
         <th><%= link_to "Grader Dotnumber", :sort => "dotnumber" %></th>
@@ -25,9 +25,8 @@
           <td> <%= rec.email %></td>
 
 
-
         </tr>
-      <%end%>
+      <% end %>
     </table>
     <%= link_to 'Back', admin_path %>
   </div>

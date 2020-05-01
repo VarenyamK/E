@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 class Course < ApplicationRecord
   serialize :student_recs, Array
-  validates :class_id, format: { with: /\A[A-Z]{3} \d{4}\z/,
-                                 message: ' format must be 3 Capital letters a space and 4 digits' }
-  validates :component, inclusion: { in: %w[LEC LAB IND], message: ' must be LEC, LAB or IND.' }
-  validates :section, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
-  validates :gradersneeded, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
-  validates :gradersfilled, numericality: { only_integer: true, message: ' must be a number.' }, allow_nil: true
+  validates :class_id, format: {with: /\A[A-Z]{3} \d{4}\z/,
+                                message: ' format must be 3 Capital letters a space and 4 digits'}
+  validates :component, inclusion: {in: %w[LEC LAB IND], message: ' must be LEC, LAB or IND.'}
+  validates :section, numericality: {only_integer: true, message: ' must be a number.'}, allow_nil: true
+  validates :gradersneeded, numericality: {only_integer: true, message: ' must be a number.'}, allow_nil: true
+  validates :gradersfilled, numericality: {only_integer: true, message: ' must be a number.'}, allow_nil: true
 
   def assign_teachers_assistant
     courses = Course.where("gradersneeded > 0")
@@ -148,7 +148,7 @@ class Course < ApplicationRecord
     studentEligibleForCourse
   end
 
-   def assign_grader(currentCourse, student)
+  def assign_grader(currentCourse, student)
     currentCourse.grader = student.email #grader is now assigned to a class
     currentCourse.save
   end

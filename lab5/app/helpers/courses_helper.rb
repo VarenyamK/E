@@ -11,7 +11,7 @@ module CoursesHelper
 
       #check that they recieved a good grade in the class
       student.grades.each do |grade|
-        if (grade.section == course.class_id) && ((grade.grade == 'A') || (grade.grade == 'A-') ||(grade.grade == 'A-'))
+        if (grade.section == course.class_id) && ((grade.grade == 'A') || (grade.grade == 'A-') || (grade.grade == 'A-'))
           g = true
           if grade.preference
             pts += 1
@@ -49,12 +49,12 @@ module CoursesHelper
       end
 
       #give more points the more recommendations
-      recs = Recommendation.where(lastname: student.lastname, dotnumber: student.dotnumber, class_id: course.class_id )
+      recs = Recommendation.where(lastname: student.lastname, dotnumber: student.dotnumber, class_id: course.class_id)
       pts += recs.length
 
       #give high amount of points for request to put the at top of list
-      reqs = Request.where(lastname: student.lastname, dotnumber: student.dotnumber, section: course.section )
-      if(reqs.length > 0)
+      reqs = Request.where(lastname: student.lastname, dotnumber: student.dotnumber, section: course.section)
+      if (reqs.length > 0)
         pts += 100
       end
 
