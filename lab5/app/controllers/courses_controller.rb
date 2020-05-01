@@ -111,6 +111,12 @@ class CoursesController < ApplicationController
     if params[:days].present?
       filter = filter.where(days: params[:days])
     end
+    if params[:start].present?
+      filter = filter.where(start: params[:start])
+    end
+    if params[:end].present?
+      filter= filter.where(end: params[:end])
+    end
     if params[:component].present?
       filter = filter.where(component: params[:component])
     end

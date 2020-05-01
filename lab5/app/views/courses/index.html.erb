@@ -13,6 +13,8 @@
       <%= select_tag :class_id, options_for_select(@courses.distinct.pluck(:class_id)), prompt: "Course" %>
       <%= select_tag :professor, options_for_select(@courses.distinct.pluck(:professor).sort), prompt: "Professor" %>
       <%= select_tag :days, options_for_select(@courses.distinct.pluck(:days)), prompt: "Days" %>
+      <%= select_tag :start, options_for_select(@courses.distinct.pluck(:start)),prompt: "Start" %>
+      <%= select_tag :end, options_for_select(@courses.distinct.pluck(:end)), prompt:"End" %>
       <%= select_tag :component, options_for_select(@courses.distinct.pluck(:component)), prompt: "Component" %>
       <%= submit_tag "Submit" %>
       <%= link_to '<button type="button">Reset</button>'.html_safe, courses_path %>
