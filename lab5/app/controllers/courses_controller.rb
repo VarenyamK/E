@@ -24,12 +24,12 @@ class CoursesController < ApplicationController
       subgroups0.each do |subgroup|
         variables = subgroup.css('td')
 
-        section = {  class_id: title,
-                     section: variables[0].text,
-                     component: variables[1].text,
-                     period: variables[3].text,
-                     location: variables[2].text,
-                     professor: variables[4].text,
+        section = {class_id: title,
+                   section: variables[0].text,
+                   component: variables[1].text,
+                   period: variables[3].text,
+                   location: variables[2].text,
+                   professor: variables[4].text,
         }
         # put in array
         classes << section
@@ -41,12 +41,12 @@ class CoursesController < ApplicationController
         # get necessary elements from the table in that subgroup
         variables = subgroup.css('td')
 
-        section = {  class_id: title,
-                     section: variables[0].text,
-                     component: variables[1].text,
-                     period: variables[3].text,
-                     location: variables[2].text,
-                     professor: variables[4].text
+        section = {class_id: title,
+                   section: variables[0].text,
+                   component: variables[1].text,
+                   period: variables[3].text,
+                   location: variables[2].text,
+                   professor: variables[4].text
 
         }
         # put in the array
@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
 
 
     end
-    
+
     #add to the course the scraped classes
     classes.each do |c|
       temp = c[:period].to_s
@@ -77,7 +77,6 @@ class CoursesController < ApplicationController
       finish2 = Time.parse(finish)
 
 
-
       #add info to Course
       Course.create(class_id: c[:class_id],
                     section: c[:section],
@@ -88,7 +87,7 @@ class CoursesController < ApplicationController
                     location: c[:location],
                     professor: c[:professor],
                     grader: c[:grader],
-                    gradersneeded: 1,
+                    gradersneeded: 2,
                     gradersfilled: 0)
     end
     #refresh to index
@@ -96,7 +95,32 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.order(params[:sort])
+    #@courses = Course.order(params[:sort])
+    @courses = filter(params)
+  end
+
+  #add various filters for course selection page
+  private def filter(params)
+    filter = Course.all
+    if params[:class_id].present?
+      filter = filter.where(class_id: params[:class_id])
+    end
+    if params[:professor].present?
+      filter = filter.where(professor: params[:professor])
+    end
+    if params[:days].present?
+      filter = filter.where(days: params[:days])
+    end
+    if params[:start].present?
+      filter = filter.where(start: params[:start])
+    end
+    if params[:end].present?
+      filter = filter.where(end: params[:end])
+    end
+    if params[:component].present?
+      filter = filter.where(component: params[:component])
+    end
+    return filter
   end
 
   def new
@@ -111,7 +135,7 @@ class CoursesController < ApplicationController
   def create
     authorized?
     @course = Course.new(course_params)
-    # checks validity of the course by using validations, only then allows user to save
+    #checks validity of the course by using validations, only then allows user to save
     if @course.save
       redirect_to @course
     else
@@ -119,11 +143,13 @@ class CoursesController < ApplicationController
     end
   end
 
+  #only allow authorized people to edit courses
   def edit
     authorized?
     @course = Course.find(params[:id])
   end
 
+  #only allow authorized people to update courses
   def update
     authorized?
     @course = Course.find(params[:id])
@@ -142,6 +168,7 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+  #checks the authorization of the user and whether they have admin privileges
   private def authorized?
     unless current_user.admin?
       redirect_back(fallback_location: root_path)

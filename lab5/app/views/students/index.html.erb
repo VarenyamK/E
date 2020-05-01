@@ -16,7 +16,7 @@
       <th><%= link_to "Friday Start", :sort => "fridaystart" %></th>
       <th><%= link_to "Friday End", :sort => "fridayend" %></th>
       <th><%= link_to "Emails", :sort => "email" %></th>
-      <th><%= link_to "Grades"%></th>
+      <th><%= link_to "Grades" %></th>
 
       </thead>
       <tbody>
@@ -37,14 +37,14 @@
           <td><%= student.fridayend.strftime("%H:%M") %></td>
           <td><%= student.email %></td>
           <td>
-            <%-# display the nested fields-%>
+            <%- # display the nested fields -%>
             <% student.grades.each do |grade| %>
 
-              <p><%=grade.section %>
-                <%=grade.grade %>
-                <%if grade.preference %>
-                   Preferred
-                  <%end %></p>
+              <p><%= grade.section %>
+                <%= grade.grade %>
+                <% if grade.preference %>
+                  Preferred
+                <% end %></p>
 
             <% end %>
           </td>

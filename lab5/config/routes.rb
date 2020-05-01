@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'course_refresh', to: 'courses#refresh'
   get 'course_refresh', to: 'courses#'
   get 'scrape', to: 'scraper#scrape'
+  get 'open_courses', to: 'students#open_courses'
 
   resources :scraper
   resources :courses

@@ -1,21 +1,25 @@
 class EvaluationsController < ApplicationController
+  #authorizes user
   private def authorized?
     unless current_user.teacher? || current_user.admin?
       redirect_back(fallback_location: root_path)
     end
   end
 
+  #check if user is admin
   private def isAdmin?
     unless current_user.admin?
       redirect_back(fallback_location: root_path)
     end
   end
 
+  #single evaluation
   def show
     authorized?
     @evaluation = Evaluation.find(params[:id])
   end
 
+  #all evaluations
   def index
     isAdmin?
     @evaluation = Evaluation.order(params[:sort])
@@ -42,7 +46,6 @@ class EvaluationsController < ApplicationController
     @evaluation = Evaluation.find(params[:id])
 
   end
-
 
   private def evaluation_params
     params.require(:evaluation).permit(:firstname, :lastname, :dotnumber, :class_id, :rating, :review)
