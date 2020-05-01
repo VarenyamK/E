@@ -1,14 +1,18 @@
 class StudentsController < ApplicationController
+  #authorizes user
   private def authorized?
-    unless current_user.admin? || !current_user.teacher?
+    unless current_user.admin? || !current_user.teacher?\
+      # go to previous page before request, backup is home page
       redirect_back(fallback_location: root_path)
     end
   end
+  #check if user is admin
   private def isAdmin?
     unless current_user.admin?
       redirect_back(fallback_location: root_path)
     end
   end
+  #single student applications
   def show
     authorized?
     @student = Student.find(params[:id])
@@ -20,10 +24,12 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  #courses that only need graders
   def open_courses
     @courses = Course.all
   end
 
+  #all student applications
   def index
     isAdmin?
     @students = Student.order(params[:sort])

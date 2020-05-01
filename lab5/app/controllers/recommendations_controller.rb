@@ -6,8 +6,10 @@ class RecommendationsController < ApplicationController
     end
   end
 
+  #check if user is admin
   private def isAdmin?
     unless current_user.admin?
+      # go to previous page before request, backup is home page
       redirect_back(fallback_location: root_path)
     end
   end

@@ -1,4 +1,5 @@
 <div class="basic">
+<%-#Check if student made an application -%>
 <%if Student.exists?(:email => @user.email) %>
   <%student = Student.find_by_email(@user.email) %>
     <p><Strong>Hello <%=student.firstname %>!</Strong></p>

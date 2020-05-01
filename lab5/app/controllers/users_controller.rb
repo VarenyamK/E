@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
+  #authorize user
 	before_action :authorized?
   private def authorized?
     unless current_user.admin?
+      # go to previous page before request, backup is home page
       redirect_back(fallback_location: root_path)
     end
   end
 
+  #all users
   def index
     @users = User.all
   end
 
+  #single user
   def show
     @user = User.find(params[:id])
   end
