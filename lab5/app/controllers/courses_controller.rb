@@ -88,7 +88,7 @@ class CoursesController < ApplicationController
                     location: c[:location],
                     professor: c[:professor],
                     grader: c[:grader],
-                    gradersneeded: 1,
+                    gradersneeded: 2,
                     gradersfilled: 0)
     end
     #refresh to index
