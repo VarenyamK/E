@@ -20,10 +20,7 @@
         <td style="text-align: center"><%= rec.dotnumber %></td>
         <td><%= rec.class_id %></td>
         <td><%= rec.email %></td>
-          <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_recommendation_path(rec)%></td>
-          <td><%= link_to '<button type="button">Delete</button>'.html_safe, course_path(rec),
-                          method: :delete,
-                          data: {confirm: 'Are you sure?'}%></td>
+
 
       </tr>
     <%end%>

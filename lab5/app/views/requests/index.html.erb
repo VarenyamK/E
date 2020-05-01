@@ -20,10 +20,7 @@
           <td><%= rec.class_id %></td>
           <td><%= rec.section %></td>
           <td><%= rec.email %></td>
-          <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_request_path(rec)%></td>
-          <td><%= link_to '<button type="button">Delete</button>'.html_safe, request_path(rec),
-                        method: :delete,
-                        data: {confirm: 'Are you sure?'}%></td>
+
 
         </tr>
       <%end%>
