@@ -14,7 +14,7 @@ Enter the grader's info and evaluation
   </p>
   <p>
     <%= f.label 'Class Name' %>
-    <%= f.text_field :class_id %>
+    <%= f.collection_select(:class_id, Course.select(:class_id).distinct,:class_id, :class_id) %>
   </p>
   <p>
     <%= f.label 'Rating out of 10' %>

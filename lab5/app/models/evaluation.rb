@@ -12,5 +12,6 @@ class Evaluation < ApplicationRecord
   validates :class_id, format: { with: /\A[A-Z]{3} \d{4}\z/,
                                  message: " format must be 3 Capital letters a space and 4 digits"}
 
-  validates :lastname, length: { maximum: 10 }
+  validates :rating, length: { maximum: 10 }
+  validates :rating, length: { minimum: 0 }
 end
